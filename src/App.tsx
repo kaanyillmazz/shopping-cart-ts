@@ -5,10 +5,12 @@ import {Grid} from "@mui/material";
 import SizeSelection from "./components/SizeSelection";
 import ProductList from "./components/ProductList";
 import CartFab from "./components/CartFab";
+import {useDispatch, useSelector} from "react-redux";
+import productsSlice, {setProducts} from "./features/Products/productsSlice";
 
 
 function App() {
-
+    const dispatch = useDispatch();
 
 
 
