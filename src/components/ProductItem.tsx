@@ -1,9 +1,5 @@
 import React from 'react'
 import {Button, Grid, Paper} from "@mui/material";
-
-
-
-
 import {useSelector} from "react-redux";
 
 type size = "XS" | "S" | "M" | "ML" | "L" | "XL" | "XXL";
@@ -23,7 +19,6 @@ function ProductItem(props: any) {
     const products = useSelector((state: any) => state.products.productsArray);
     let id = props.id;
 
-
 let Paper12;
     if(products[id]) {
         let currentProduct: product = products[id];
@@ -38,7 +33,6 @@ let Paper12;
             <h2>{name}</h2>
             <h3>${price}</h3>
             <Button variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
-
         </Paper>)
     }
 
@@ -47,14 +41,7 @@ return (
         <Grid item>
             {Paper12}
         </Grid>
-
-
-
-
-
-
     </Grid>
 );
 }
-
 export default ProductItem;

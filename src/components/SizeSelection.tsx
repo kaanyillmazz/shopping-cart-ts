@@ -18,6 +18,9 @@ function SizeSelection(props: any) {
         e.preventDefault();
         let sizeToFilter = e.target.innerText;
         dispatch(resetProducts());
+        if(sizeToFilter === "ALL") {
+            return;
+        }
         dispatch(setSize(sizeToFilter));
         dispatch(filterProducts(sizeToFilter));
         console.log(products);
@@ -39,6 +42,7 @@ function SizeSelection(props: any) {
                     <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">L</Fab>
                     <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">XL</Fab>
                     <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">XXL</Fab>
+                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">ALL</Fab>
                 </Grid>
             </Grid>
         </Grid>
