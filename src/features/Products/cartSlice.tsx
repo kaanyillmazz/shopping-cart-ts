@@ -9,7 +9,7 @@ const initialState: CardModel = {
     myCart: []
 }
 
-function myIndexOf(myCart: Product[], item: Product) {
+export function myIndexOf(myCart: Product[], item: Product) {
     for (let i = 0; i < myCart.length; i++) {
         if (myCart[i].id === item.id) {
             return i;

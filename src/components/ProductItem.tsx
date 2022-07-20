@@ -1,17 +1,30 @@
 import React from 'react'
 import {Button, Grid, Paper} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {addItem} from "../features/Products/cartSlice";
+import {addItem, myIndexOf} from "../features/Products/cartSlice";
 
 
 function ProductItem(props: any) {
     const products = useSelector((state: any) => state.products.productsArray);
+    const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
 
     const addToCart = (index: number) => {
         console.log(index);
         console.log(products[index]);
         dispatch(addItem(products[index]));
+    }
+
+    const myButton = (product0: any, index0: any) => {
+        let product = product0;
+        let index = index0;
+        let myButton0;
+        if (myIndexOf(myCart, product) != -1) {
+            myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "lightslategray"}}>In cart</Button>);
+        } else {
+            myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}>Add To Cart</Button>);
+        }
+        return myButton0;
     }
 
 
@@ -29,9 +42,7 @@ function ProductItem(props: any) {
                                 <h3>${product.price}</h3>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button onClick={() => {
-                                    addToCart(index)
-                                }} variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
+                                {myButton(product, index)}
                             </Grid>
                         </Grid>
                     </Paper>
