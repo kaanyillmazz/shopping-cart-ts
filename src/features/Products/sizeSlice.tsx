@@ -1,13 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    size: "Medium"
+    sizeValue: "Medium"
 
 }
 export const sizeSlice = createSlice({
 name: 'size', initialState, reducers: {
         setSize: (state,size) => {
-            state.size = size.payload;
+            state.sizeValue = size.payload;
         },
     },
 })
