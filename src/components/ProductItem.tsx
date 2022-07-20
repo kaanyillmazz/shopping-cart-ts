@@ -3,11 +3,19 @@ import {Button, Grid, Paper} from "@mui/material";
 import {useSelector} from "react-redux";
 
 type size = "XS" | "S" | "M" | "ML" | "L" | "XL" | "XXL";
-interface product {
-    name: string;
-    price: number;
-    size: size;
+export interface Rating {
+    rate: number;
+    count: number;
+}
+
+export interface Product {
     id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+    rating: Rating;
 }
 
 function picStringCalc(id: number, photoVersion: number) {
@@ -21,18 +29,30 @@ function ProductItem(props: any) {
 
 let Paper12;
     if(products[id]) {
-        let currentProduct: product = products[id];
-        let name = currentProduct.name;
+        let currentProduct: Product = products[id];
+        let name = currentProduct.title;
         let price = currentProduct.price;
-        let size = currentProduct.size;
+        let image = currentProduct.image;
+
+
         let picString1 = picStringCalc(currentProduct.id,1);
         let picString2 = picStringCalc(currentProduct.id, 2);
 
-        Paper12 = (<Paper>
-            <img src={`/assets/images/${picString1}`+'.png'} />
-            <h2>{name}</h2>
-            <h3>${price}</h3>
-            <Button variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
+        Paper12 = (<Paper >
+            <img height={400} width={275} src={image} />
+            <Grid height={250} container display="flex">
+              <Grid item xs={12}>
+                  <h4>{name}</h4>
+              </Grid>
+                <Grid item xs={12}>
+                    <h3>${price}</h3>
+                </Grid>
+                <Grid item xs={12}>
+                    <Button variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
+                </Grid>
+            </Grid>
+
+
         </Paper>)
     }
 

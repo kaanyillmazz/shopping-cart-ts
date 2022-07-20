@@ -8,10 +8,16 @@ import CartFab from "./components/CartFab";
 import {useDispatch, useSelector} from "react-redux";
 import productsSlice, {setProducts} from "./features/Products/productsSlice";
 
+import axios from "axios";
+
+const baseURL = "https://fakestoreapi.com/products";
 
 function App() {
     const dispatch = useDispatch();
 
+    axios.get(`${baseURL}`).then((response) => {
+        dispatch(setProducts(response.data))
+    });
 
 
 
