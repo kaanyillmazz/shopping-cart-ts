@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import productsSlice, {setProducts, setDefaultProducts} from "./features/Products/productsSlice";
 
 import axios from "axios";
+import SortingComponent from "./components/SortingComponent";
 
 const baseURL = "https://fakestoreapi.com/products";
 
@@ -30,6 +31,7 @@ function App() {
             <Grid container item xs={2} display="flex">
                 <Grid item>
                     <CategorySelection/>
+                    <SortingComponent/>
                 </Grid>
             </Grid>
             <Grid container item xs={10} display="flex">

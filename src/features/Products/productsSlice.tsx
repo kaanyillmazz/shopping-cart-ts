@@ -39,9 +39,12 @@ name: 'products', initialState, reducers: {
             state.productsArray = state.defaultArray.slice(0);
             console.log(state.productsArray);
         },
+        sortProducts: (state,func) => {
+            state.productsArray.sort(func.payload);
+        },
     },
 })
 
-export const {setProducts, filterProducts, resetProducts, setDefaultProducts} = productsSlice.actions;
+export const {setProducts, filterProducts, resetProducts, setDefaultProducts, sortProducts} = productsSlice.actions;
 
 export default productsSlice.reducer
