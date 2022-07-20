@@ -6,15 +6,12 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import {useDispatch, useSelector} from "react-redux";
 import productsSlice, {filterProducts, resetProducts, setProducts} from "../features/Products/productsSlice";
-import sizeSlice, {setSize} from "../features/Products/sizeSlice";
+import {setCategory} from "../features/Products/filterSlice";
 
-type size = "XS" | "S" | "M" | "ML" | "L" | "XL" | "XXL";
 
-function SizeSelection(props: any) {
+function CategorySelection(props: any) {
     const dispatch = useDispatch();
     const products = useSelector((state: any) => state.products.productsArray);
-    const size = useSelector((state: any) => state.size.sizeValue);
-
 
     function handleClick(e: any) {
         e.preventDefault();
@@ -24,11 +21,10 @@ function SizeSelection(props: any) {
         if(ToFilter === "ALL") {
             return;
         }
-        dispatch(setSize(ToFilter));
+        dispatch(setCategory(ToFilter));
         dispatch(filterProducts(ToFilter));
         console.log(products);
     }
-
     return(
         <Grid container display="flex" justifyContent="center">
             <Grid item xs={12} display="flex">
@@ -45,4 +41,4 @@ function SizeSelection(props: any) {
         </Grid>
     );
 }
-export default SizeSelection;
+export default CategorySelection;

@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Grid} from "@mui/material";
-import SizeSelection from "./components/SizeSelection";
+import CategorySelection from "./components/CategorySelection";
 import ProductList from "./components/ProductList";
 import CartFab from "./components/CartFab";
 import {useDispatch, useSelector} from "react-redux";
@@ -29,7 +29,7 @@ function App() {
         <Grid container display="flex" className="App" padding={10}>
             <Grid container item xs={2} display="flex">
                 <Grid item>
-                    <SizeSelection/>
+                    <CategorySelection/>
                 </Grid>
             </Grid>
             <Grid container item xs={10} display="flex">

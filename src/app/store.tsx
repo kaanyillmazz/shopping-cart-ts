@@ -1,11 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit'
-import sizeSlice from "../features/Products/sizeSlice";
+import filterSlice from "../features/Products/filterSlice";
 import productsSlice from "../features/Products/productsSlice";
+import sortingSlice from "../features/Products/sortingSlice";
+
 
 
 export const store = configureStore({
     reducer: {
-        size: sizeSlice,
-        products: productsSlice
+        size: filterSlice,
+        category: filterSlice,
+        products: productsSlice,
+        sorting: sortingSlice
     },
 })
