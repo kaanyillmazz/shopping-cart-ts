@@ -18,25 +18,17 @@ export interface Product {
     rating: Rating;
 }
 
-function picStringCalc(id: number, photoVersion: number) {
-    let toSend: string = "P"+id+"i"+photoVersion;
-    return (toSend);
-}
-
 function ProductItem(props: any) {
     const products = useSelector((state: any) => state.products.productsArray);
     let id = props.id;
 
-let Paper12;
+    let Paper12;
     if(products[id]) {
         let currentProduct: Product = products[id];
         let name = currentProduct.title;
         let price = currentProduct.price;
         let image = currentProduct.image;
-
-
-        let picString1 = picStringCalc(currentProduct.id,1);
-        let picString2 = picStringCalc(currentProduct.id, 2);
+        let category = currentProduct.category;
 
         Paper12 = (<Paper >
             <img height={400} width={275} src={image} />
@@ -51,8 +43,6 @@ let Paper12;
                     <Button variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
                 </Grid>
             </Grid>
-
-
         </Paper>)
     }
 

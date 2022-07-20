@@ -6,7 +6,7 @@ import SizeSelection from "./components/SizeSelection";
 import ProductList from "./components/ProductList";
 import CartFab from "./components/CartFab";
 import {useDispatch, useSelector} from "react-redux";
-import productsSlice, {setProducts} from "./features/Products/productsSlice";
+import productsSlice, {setProducts, setDefaultProducts} from "./features/Products/productsSlice";
 
 import axios from "axios";
 
@@ -19,6 +19,10 @@ function App() {
         dispatch(setProducts(response.data))
     });
 
+
+    axios.get(`${baseURL}`).then((response) => {
+        dispatch(setDefaultProducts(response.data))
+    });
 
 
     return (

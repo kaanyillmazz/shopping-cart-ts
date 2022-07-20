@@ -1,10 +1,12 @@
 import React from 'react'
 import {Grid} from "@mui/material";
 import Fab from '@mui/material/Fab';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import {useDispatch, useSelector} from "react-redux";
 import productsSlice, {filterProducts, resetProducts, setProducts} from "../features/Products/productsSlice";
 import sizeSlice, {setSize} from "../features/Products/sizeSlice";
-
 
 type size = "XS" | "S" | "M" | "ML" | "L" | "XL" | "XXL";
 
@@ -16,34 +18,29 @@ function SizeSelection(props: any) {
 
     function handleClick(e: any) {
         e.preventDefault();
-        let sizeToFilter = e.target.innerText;
+        let ToFilter = e.target.innerText.toLowerCase();
+        console.log(ToFilter);
         dispatch(resetProducts());
-        if(sizeToFilter === "ALL") {
+        if(ToFilter === "ALL") {
             return;
         }
-        dispatch(setSize(sizeToFilter));
-        dispatch(filterProducts(sizeToFilter));
+        dispatch(setSize(ToFilter));
+        dispatch(filterProducts(ToFilter));
         console.log(products);
     }
 
     return(
         <Grid container display="flex" justifyContent="center">
             <Grid item xs={12} display="flex">
-                <h1>sizes:</h1>
+                <h1>  Categories</h1>
             </Grid>
             <Grid container item xs={12} display="flex">
-                <Grid item xs={12} display="flex">
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">XS</Fab>
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">S</Fab>
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">M</Fab>
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">ML</Fab>
-                </Grid>
-                <Grid item xs={12} display="flex">
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">L</Fab>
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">XL</Fab>
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">XXL</Fab>
-                    <Fab onClick={handleClick} sx={{margin: 0.5}} size="small">ALL</Fab>
-                </Grid>
+                <Stack spacing={0.5}>
+                    <Button value="women" sx={{backgroundColor: "orangered"}} onClick={handleClick} variant="contained">women's clothing</Button>
+                    <Button value="men" sx={{backgroundColor: "orangered"}} onClick={handleClick} variant="contained">men's clothing</Button>
+                    <Button value="jewelry" sx={{backgroundColor: "orangered"}} onClick={handleClick} variant="contained">jewelery</Button>
+                    <Button value="electronics" sx={{backgroundColor: "orangered"}} onClick={handleClick} variant="contained">electronics</Button>
+                </Stack>
             </Grid>
         </Grid>
     );
