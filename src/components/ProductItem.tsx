@@ -1,25 +1,21 @@
 import React from 'react'
 import {Button, Grid, Paper} from "@mui/material";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {addItem} from "../features/Products/cartSlice";
 
-type size = "XS" | "S" | "M" | "ML" | "L" | "XL" | "XXL";
-export interface Rating {
-    rate: number;
-    count: number;
-}
 
-export interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: Rating;
-}
 
 function ProductItem(props: any) {
     const products = useSelector((state: any) => state.products.productsArray);
+    const dispatch = useDispatch();
+
+    const addToCart = (index: number) => {
+        console.log(index);
+        console.log(products[index]);
+        dispatch(addItem(products[index]));
+    }
+
+
 return (
         <Grid container xs={12} display="flex">
             {products.map((product: any, index: number) => (
@@ -34,7 +30,7 @@ return (
                             <h3>${product.price}</h3>
                         </Grid>
                         <Grid item xs={12}>
-                            <Button variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
+                            <Button onClick={()=>{addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}> Add To Cart</Button>
                         </Grid>
                     </Grid>
                 </Paper>

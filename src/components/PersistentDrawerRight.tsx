@@ -20,6 +20,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import {useDispatch, useSelector} from "react-redux";
 import {setOpen} from "../features/Products/drawerSlice";
+import CartFab from "./CartFab";
+import CartMain from "./CartMain";
+import {Grid} from "@mui/material";
 
 
 
@@ -106,11 +109,18 @@ export default function PersistentDrawerRight() {
                 open={open}
             >
                 <DrawerHeader>
+                    <h2>Shopping Cart</h2>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </DrawerHeader>
 
+                <Grid container display="flex">
+                    <Grid item xs={12}>
+                        <CartMain/>
+                    </Grid>
+
+                </Grid>
 
 
             </Drawer>
