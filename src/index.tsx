@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {store} from './app/store'
 import {Provider} from 'react-redux'
+import PersistentDrawerRight from "./components/PersistentDrawerRight";
 
 
 const root = ReactDOM.createRoot(
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <Provider store={store}>
+        <PersistentDrawerRight/>
         <App />
+
     </Provider>
 );
 

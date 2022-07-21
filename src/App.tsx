@@ -11,6 +11,7 @@ import productsSlice, {setProducts, setDefaultProducts, sortProducts} from "./fe
 import axios from "axios";
 import SortingComponent from "./components/SortingComponent";
 import PriceRangeSelector from "./components/PriceRangeSelector";
+import PersistentDrawerRight from "./components/PersistentDrawerRight";
 
 const baseURL = "https://fakestoreapi.com/products";
 

@@ -2,6 +2,8 @@ import {configureStore} from '@reduxjs/toolkit'
 import filterSlice from "../features/Products/filterSlice";
 import productsSlice from "../features/Products/productsSlice";
 import sortingSlice from "../features/Products/sortingSlice";
+import drawerSlice from "../features/Products/drawerSlice";
+
 
 
 
@@ -9,6 +11,7 @@ export const store = configureStore({
     reducer: {
         filter: filterSlice,
         products: productsSlice,
-        sorting: sortingSlice
+        sorting: sortingSlice,
+        drawer: drawerSlice
     },
 })

@@ -1,10 +1,21 @@
 import React from 'react'
 import {Fab} from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {setOpen} from "../features/Products/drawerSlice";
+import {useDispatch} from "react-redux";
+
+
 
 function CartFab(props: any) {
+
+    const dispatch = useDispatch();
+
+    const handleDrawerOpen = () => {
+        dispatch(setOpen(true));
+    };
+
 return(
-    <Fab  size="large" style={{position: 'absolute', right: 0, top: 5, height: 20, width: 50, minHeight: 50, backgroundColor: "orangered"}} >
+    <Fab  onClick={handleDrawerOpen} size="large" style={{position: 'fixed', right: 0, top: 5, height: 20, width: 50, minHeight: 50, backgroundColor: "orangered"}} >
 <ShoppingCartIcon fontSize="large"/>
     </Fab>
 
