@@ -29,12 +29,13 @@ function App() {
 
 
     return (
-        <Grid container display="flex" className="App" padding={10}>
+        <Grid container display="flex" className="App" sx={{paddingLeft: 10, paddingRight: 3}}>
             <Grid container item xs={2} display="flex">
                 <Grid item>
                     <CategorySelection/>
-                    <SortingComponent/>
                     <PriceRangeSelector/>
+                    <SortingComponent/>
+
                 </Grid>
             </Grid>
             <Grid container item xs={10} display="flex">

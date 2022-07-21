@@ -8,6 +8,9 @@ import {Provider} from 'react-redux'
 import PersistentDrawerRight from "./components/PersistentDrawerRight";
 
 
+window.document.title="Shopping Cart TS";
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

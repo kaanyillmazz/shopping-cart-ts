@@ -25,7 +25,7 @@ function SortingComponent(props: any) {
 
     return (
         <Box mt={1} sx={{minWidth: 100}}>
-            <FormControl sx={{marginRight: 5, marginTop: 3, marginBottom: 3}}>
+            <FormControl sx={{marginRight: 7, marginTop: 0, marginBottom: 3}}>
                 <InputLabel variant="standard"> <i style={{color: 'orange'}}>sort</i> </InputLabel>
                 <NativeSelect color="warning" value={sorting} onChange={handleChange}>
                     <option value="MostPrice">Most Price</option>
