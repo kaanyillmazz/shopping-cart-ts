@@ -7,10 +7,7 @@ import sortingSlice from "../features/Products/sortingSlice";
 
 export const store = configureStore({
     reducer: {
-        size: filterSlice,
-        category: filterSlice,
-        maxPrice: filterSlice,
-        minPrice: filterSlice,
+        filter: filterSlice,
         products: productsSlice,
         sorting: sortingSlice
     },

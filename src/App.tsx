@@ -6,10 +6,11 @@ import CategorySelection from "./components/CategorySelection";
 import ProductList from "./components/ProductList";
 import CartFab from "./components/CartFab";
 import {useDispatch, useSelector} from "react-redux";
-import productsSlice, {setProducts, setDefaultProducts} from "./features/Products/productsSlice";
+import productsSlice, {setProducts, setDefaultProducts, sortProducts} from "./features/Products/productsSlice";
 
 import axios from "axios";
 import SortingComponent from "./components/SortingComponent";
+import PriceRangeSelector from "./components/PriceRangeSelector";
 
 const baseURL = "https://fakestoreapi.com/products";
 
@@ -17,12 +18,12 @@ function App() {
     const dispatch = useDispatch();
 
     axios.get(`${baseURL}`).then((response) => {
-        dispatch(setProducts(response.data))
+        dispatch(setProducts(response.data));
     });
 
 
     axios.get(`${baseURL}`).then((response) => {
-        dispatch(setDefaultProducts(response.data))
+        dispatch(setDefaultProducts(response.data));
     });
 
 
@@ -32,6 +33,7 @@ function App() {
                 <Grid item>
                     <CategorySelection/>
                     <SortingComponent/>
+                    <PriceRangeSelector/>
                 </Grid>
             </Grid>
             <Grid container item xs={10} display="flex">

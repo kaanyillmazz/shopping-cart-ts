@@ -3,11 +3,9 @@ import {createSlice} from '@reduxjs/toolkit'
 type size = "XS" | "S" | "M" | "ML" | "L" | "XL" | "XXL";
 
 const initialState = {
-    category: "",
+    category: "all",
     size: "",
-    maxPrice: 9999,
-    minPrice: 0
-
+    priceRange: [0,1000]
 }
 export const filterSlice = createSlice({
 name: 'filter', initialState, reducers: {
@@ -15,14 +13,12 @@ name: 'filter', initialState, reducers: {
             state.category= category.payload;
         },setSize: (state,size) => {
             state.size= size.payload;
-        },setMaxPrice: (state, maxPrice) =>{
-            state.maxPrice = maxPrice.payload;
-        },setMinPrice: (state, minPrice) => {
-            state.minPrice = minPrice.payload;
+        },setPriceRange: (state, priceRange) =>{
+            state.priceRange = priceRange.payload;
         },
     },
 })
 
-export const {setCategory, setSize, setMinPrice, setMaxPrice} = filterSlice.actions;
+export const {setCategory, setSize, setPriceRange} = filterSlice.actions;
 
 export default filterSlice.reducer

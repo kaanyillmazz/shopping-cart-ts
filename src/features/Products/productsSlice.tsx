@@ -31,7 +31,7 @@ name: 'products', initialState, reducers: {
             state.defaultArray = products.payload;
         },
         filterProducts: (state,func) => {
-            state.productsArray = state.productsArray.filter(func.payload);
+            state.productsArray = state.defaultArray.filter(func.payload);
             console.log(state.productsArray);
         },
         resetProducts: (state) => {
