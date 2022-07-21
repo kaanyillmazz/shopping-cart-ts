@@ -30,9 +30,8 @@ name: 'products', initialState, reducers: {
         setDefaultProducts: (state,products) => {
             state.defaultArray = products.payload;
         },
-        filterProducts: (state,size) => {
-            let sizeToFilter = size.payload;
-            state.productsArray = state.productsArray.filter(function(item: Product) { return item.category === sizeToFilter;});
+        filterProducts: (state,func) => {
+            state.productsArray = state.productsArray.filter(func.payload);
             console.log(state.productsArray);
         },
         resetProducts: (state) => {

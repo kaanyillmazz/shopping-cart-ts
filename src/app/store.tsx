@@ -9,6 +9,8 @@ export const store = configureStore({
     reducer: {
         size: filterSlice,
         category: filterSlice,
+        maxPrice: filterSlice,
+        minPrice: filterSlice,
         products: productsSlice,
         sorting: sortingSlice
     },

@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import {useDispatch, useSelector} from "react-redux";
-import productsSlice, {filterProducts, resetProducts, setProducts} from "../features/Products/productsSlice";
+import productsSlice, {filterProducts, Product, resetProducts, setProducts} from "../features/Products/productsSlice";
 import {setCategory} from "../features/Products/filterSlice";
 
 
@@ -22,7 +22,7 @@ function CategorySelection(props: any) {
             return;
         }
         dispatch(setCategory(ToFilter));
-        dispatch(filterProducts(ToFilter));
+        dispatch(filterProducts(function(item: Product) { return item.category === ToFilter;}));
         console.log(products);
     }
     return(
