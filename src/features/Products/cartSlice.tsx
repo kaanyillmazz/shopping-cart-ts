@@ -18,6 +18,10 @@ export function myIndexOf(myCart: Product[], item: Product) {
     return -1;
 }
 
+export function getCount(myCart: Product[], item: Product) {
+    return myCart[myIndexOf(myCart,item)].count;
+}
+
 function myIndexOfTitle(myCart: Product[], title: string) {
     for (let i = 0; i < myCart.length; i++) {
         if (myCart[i].title.toString().localeCompare(title) === 0) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Grid, Paper} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {addItem, myIndexOf} from "../features/Products/cartSlice";
+import {addItem, getCount, myIndexOf} from "../features/Products/cartSlice";
 
 
 function ProductItem(props: any) {
@@ -20,7 +20,7 @@ function ProductItem(props: any) {
         let index = index0;
         let myButton0;
         if (myIndexOf(myCart, product) != -1) {
-            myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "lightslategray"}}>In cart</Button>);
+            myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "lightslategray"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
             myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}>Add To Cart</Button>);
         }
