@@ -25,11 +25,11 @@ function CategorySelection(props: any) {
     function handleClick(e: any) {
         e.preventDefault();
         let ToFilter = e.target.innerText.toLowerCase();
-        console.log(ToFilter);
-        dispatch(setCategory(ToFilter));
-        dispatch(filterProducts(function (item: Product) {
-            return item.category === ToFilter && item.price > priceRange[0] && item.price < priceRange[1]
-        }));
+        if(ToFilter === "all") {
+            dispatch(filterProducts(function (item: Product) {return (item.price > priceRange[0] && item.price < priceRange[1])}));
+        } else {
+            dispatch(filterProducts(function (item: Product) {return (item.price > priceRange[0] && item.price < priceRange[1] && item.category === ToFilter)}));
+        }
         handleSorting();
     }
 
@@ -70,6 +70,7 @@ function CategorySelection(props: any) {
                     value={category}
                     exclusive
                     onChange={handleChange} >
+                    <ToggleButton value="all">all</ToggleButton>
                     <ToggleButton value="women's clothing">women's clothing</ToggleButton>
                     <ToggleButton value="men's clothing">men's clothing</ToggleButton>
                     <ToggleButton value="jewelery">jewelery</ToggleButton>
