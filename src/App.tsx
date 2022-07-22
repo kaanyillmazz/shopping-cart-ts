@@ -21,7 +21,7 @@ function App() {
 
     const countSetter = (data: any) => {
         for(let i = 0; i < data.length; i++) {
-            data[i].count = 0;
+            data[i].count = 1;
         }
         dispatch(setProducts(data));
         dispatch(setDefaultProducts(data));

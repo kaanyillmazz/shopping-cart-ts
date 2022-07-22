@@ -1,10 +1,13 @@
 import React from 'react'
-import {Button, Grid, ListItem, ListItemText, Paper} from "@mui/material";
+import {Button, Fab, Grid, ListItem, ListItemText, Paper} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {emptyItems} from "../features/Products/cartSlice";
+import {decreaseCount, emptyItems, increaseCount} from "../features/Products/cartSlice";
 import {Product} from "../features/Products/productsSlice";
 import List from "@mui/material/List";
-
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
+import Divider from "@mui/material/Divider";
 
 
 function CartMain(props: any) {
@@ -13,12 +16,21 @@ function CartMain(props: any) {
     const dispatch = useDispatch();
     const titleCreator = (price: number, count:number) => {
 
-        let str = "$"+price+"  count:"+count;
+        let str = "$"+price+"   "+"Count: "+count;
         return str;
     }
     const checkoutHandler = () => {
         alert("Items will be shipped soon! Thanks!");
         dispatch(emptyItems());
+    }
+
+    const increaseHandler = (title: any) => {
+        let myTitle = title;
+        dispatch(increaseCount(myTitle));
+    }
+    const decreaseHandler = (title: any) => {
+        let myTitle = title;
+        dispatch(decreaseCount(title));
     }
 
 
@@ -33,16 +45,29 @@ function CartMain(props: any) {
 
                         <List dense={true}>
                                 <ListItem>
+                                    <Grid container>
+                                    <Grid item xs={12}>
                                     <ListItemText
                                         primary={product.title}
                                         secondary={titleCreator(product.price,product.count)}
                                     />
+                                    </Grid>
+                                    <Grid item spacing={3} xs={12}>
+                                    <Fab  onClick={()=>{increaseHandler(product.title)}} size="small" style={{position: 'absolute',  height: 20, width: 20, minHeight: 20, backgroundColor: "orangered"}} >
+                                        <AddOutlinedIcon fontSize="small"/>
+                                    </Fab>
+                                    <Fab  onClick={()=>{decreaseHandler(product.title)}} size="small" style={{position: 'absolute', left: 45, height: 20, width: 20, minHeight: 20, backgroundColor: "orangered"}} >
+                                        <RemoveOutlinedIcon fontSize="small"/>
+                                    </Fab>
+                                    </Grid>
+                                    </Grid>
                                 </ListItem>
 
                         </List>
 
                     ))}
                 </Grid>
+                <Divider variant="middle" sx={{marginTop: 3, marginBottom: 3}}/>
 
             </Grid>
             <Grid item xs={6}>
