@@ -22,25 +22,18 @@ function CategorySelection(props: any) {
     const category = useSelector((state: any) => state.filter.category);
     const sorting = useSelector((state: any) => state.sorting.sorting);
 
-    function handleClick(e: any) {
-        e.preventDefault();
-        let ToFilter = e.target.innerText.toLowerCase();
+
+    const handleChange = (e: any) => {
+        let newAlignment = e.target.value;
+        dispatch(setCategory(newAlignment));
+        let ToFilter = e.target.value.toLowerCase();
         if(ToFilter === "all") {
             dispatch(filterProducts(function (item: Product) {return (item.price > priceRange[0] && item.price < priceRange[1])}));
         } else {
             dispatch(filterProducts(function (item: Product) {return (item.price > priceRange[0] && item.price < priceRange[1] && item.category === ToFilter)}));
         }
         handleSorting();
-    }
-
-    const handleChange = (
-        event: React.MouseEvent<HTMLElement>,
-        newAlignment: string,
-    ) => {
-        dispatch(setCategory(newAlignment));
-        handleClick(event);
     };
-
 
     const handleSorting = () => {
         let value0 = sorting;
