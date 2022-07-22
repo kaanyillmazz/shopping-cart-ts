@@ -10,6 +10,7 @@ import {setProducts, setDefaultProducts} from "./features/Products/productsSlice
 import axios from "axios";
 import SortingComponent from "./components/SortingComponent";
 import PriceRangeSelector from "./components/PriceRangeSelector";
+import CheckoutScreen from "./components/CheckoutScreen";
 
 const baseURL = "https://fakestoreapi.com/products";
 
@@ -35,6 +36,7 @@ function App() {
     return (
         <Grid container className="App">
             <Grid container item md={2} xs={12} display="flex" justifyContent="center">
+                <CheckoutScreen/>
                 <Grid item md={12} xs={12}>
                     <CategorySelection/>
                     <PriceRangeSelector/>

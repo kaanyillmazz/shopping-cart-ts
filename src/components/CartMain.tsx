@@ -7,6 +7,7 @@ import List from "@mui/material/List";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import Divider from "@mui/material/Divider";
+import {setOpen} from "../features/Products/dialogSlice";
 
 
 function CartMain(props: any) {
@@ -18,6 +19,9 @@ function CartMain(props: any) {
     }
 
     const checkoutHandler = () => {
+        dispatch(setOpen(true));
+    }
+    const cancelHandler = () => {
         alert("Items will be shipped soon! Thanks!");
         dispatch(emptyItems());
     }
@@ -70,7 +74,7 @@ function CartMain(props: any) {
                 <Button onClick={checkoutHandler} variant="contained" sx={{backgroundColor: "orangered", marginLeft: 2}}>Checkout</Button>
             </Grid>
             <Grid item xs={6}>
-                <Button onClick={checkoutHandler} variant="contained" sx={{backgroundColor: "red", marginLeft: 2}}>Cancel</Button>
+                <Button onClick={cancelHandler} variant="contained" sx={{backgroundColor: "red", marginLeft: 2}}>Cancel</Button>
             </Grid>
         </Grid>)
 }
