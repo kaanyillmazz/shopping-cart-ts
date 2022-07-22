@@ -52,9 +52,9 @@ function PriceRangeSelector(props: any) {
     };
 
     return (
-        <Box sx={{width: 180}}>
-            <h2 style={{padding: 0, marginBottom: 0, color: "orangered"}}>Price Range</h2>
-            <Slider
+        <Grid container  display="flex" justifyContent="center">
+            <h2 style={{padding: 0, marginTop: 25, marginBottom: 0, color: "orangered"}}>Price Range</h2>
+            <Slider sx={{marginLeft: 5, marginRight: 5, marginTop: 0, marginBottom: 0}}
                 min={0} max={1000}
                     size="small"
                     color="secondary"
@@ -65,7 +65,7 @@ function PriceRangeSelector(props: any) {
                     valueLabelDisplay="auto"
                     getAriaValueText={valuetext}
             />
-        </Box>
+        </Grid>
     );
 }
 

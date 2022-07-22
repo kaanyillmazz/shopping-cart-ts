@@ -29,16 +29,16 @@ function App() {
 
 
     return (
-        <Grid container display="flex" className="App" sx={{paddingLeft: 10, paddingRight: 3}}>
-            <Grid container item xs={2} display="flex">
-                <Grid item>
+        <Grid container className="App">
+            <Grid container item md={2} xs={12} display="flex" justifyContent="center">
+                <Grid item md={12} xs={12}>
                     <CategorySelection/>
                     <PriceRangeSelector/>
                     <SortingComponent/>
 
                 </Grid>
             </Grid>
-            <Grid container item xs={10} display="flex">
+            <Grid container item md={10} xs={12} display="flex">
                 <ProductList/>
             </Grid>
             <CartFab/>

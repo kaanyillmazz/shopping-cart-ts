@@ -24,15 +24,15 @@ function SortingComponent(props: any) {
 
 
     return (
-        <Box mt={1} sx={{minWidth: 100}}>
-            <FormControl sx={{marginRight: 7, marginTop: 0, marginBottom: 3}}>
+        <Grid mt={1} sx={{ paddingLeft: 5, paddingRight: 5}}>
+            <FormControl fullWidth>
                 <InputLabel variant="standard"> <i style={{color: 'orange'}}>sort</i> </InputLabel>
                 <NativeSelect color="warning" value={sorting} onChange={handleChange}>
                     <option value="MostPrice">Most Price</option>
                     <option value="LeastPrice">Least Price</option>
                 </NativeSelect>
             </FormControl>
-        </Box>
+        </Grid>
     )
 }
 

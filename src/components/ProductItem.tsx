@@ -17,9 +17,9 @@ function ProductItem(props: any) {
 
 
 return (
-        <Grid container xs={12} display="flex">
+        <Grid container xs={12} md={12} display="flex">
             {products.map((product: any, index: number) => (
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={6} lg={3}>
                 <Paper>
                     <img height={400} width={275} src={product.image} />
                     <Grid height={250} container display="flex">

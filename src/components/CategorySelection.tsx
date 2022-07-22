@@ -59,10 +59,10 @@ function CategorySelection(props: any) {
     };
     return (
         <Grid container display="flex" justifyContent="center">
-            <Grid item xs={12} display="flex">
+            <Grid item display="flex" justifyContent="center">
                 <h1> Categories</h1>
             </Grid>
-            <Grid container item xs={12} display="flex">
+            <Grid container item display="flex" justifyContent="center">
                 <ToggleButtonGroup
                     orientation="vertical"
                     size="medium"
