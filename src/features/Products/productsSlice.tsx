@@ -1,18 +1,17 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-    export class Rating {
+export class Rating {
     constructor(props: any) {
         this.rate = props.rate;
-        this.count= props.count;
+        this.count = props.count;
     }
+    rate: number = 1;
+    count: number = 1;
+}
 
-        rate:number = 1;
-        count:number = 1 ;
-    }
-
-    export class Product {
-    constructor(id:any,title:any,price:any,description:any,category:any,image:any,count:any,rating:any) {
-        this.id= id;
+export class Product {
+    constructor(id: any, title: any, price: any, description: any, category: any, image: any, count: any, rating: any) {
+        this.id = id;
         this.title = title;
         this.price = price;
         this.description = description;
@@ -21,32 +20,31 @@ import {createSlice} from '@reduxjs/toolkit'
         this.count = count;
         this.rating = rating;
     }
-        id: number;
-        title: string;
-        price: number;
-        description: string;
-        category: string;
-        image: string;
-        count: number;
-        rating: Rating;
-    }
-
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+    count: number;
+    rating: Rating;
+}
 
 
 const initialState = {
     productsArray: [],
     defaultArray: []
-
 }
+
 export const productsSlice = createSlice({
-name: 'products', initialState, reducers: {
-        setProducts: (state,products) => {
+    name: 'products', initialState, reducers: {
+        setProducts: (state, products) => {
             state.productsArray = products.payload;
         },
-        setDefaultProducts: (state,products) => {
+        setDefaultProducts: (state, products) => {
             state.defaultArray = products.payload;
         },
-        filterProducts: (state,func) => {
+        filterProducts: (state, func) => {
             state.productsArray = state.defaultArray.filter(func.payload);
             console.log(state.productsArray);
         },
@@ -54,7 +52,7 @@ name: 'products', initialState, reducers: {
             state.productsArray = state.defaultArray.slice(0);
             console.log(state.productsArray);
         },
-        sortProducts: (state,func) => {
+        sortProducts: (state, func) => {
             state.productsArray.sort(func.payload);
         },
     },

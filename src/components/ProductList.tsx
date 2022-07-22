@@ -9,16 +9,17 @@ function ProductList(props: any) {
 
 
     return (
-       <Grid container display="flex">
-           <Grid item xs={12}>
-               <h1>{productCount} products found.</h1>
-           </Grid>
-           <Grid item xs={12} display="flex">
-               <ProductItem/>
-           </Grid>
-       </Grid>
+        <Grid container display="flex">
+            <Grid item xs={12}>
+                <h1>{productCount} products found.</h1>
+            </Grid>
+            <Grid item xs={12} display="flex">
+                <ProductItem/>
+            </Grid>
+        </Grid>
 
     );
 
 }
+
 export default ProductList;

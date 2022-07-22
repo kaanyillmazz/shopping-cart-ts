@@ -1,36 +1,22 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
+import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import {useDispatch, useSelector} from "react-redux";
 import {setOpen} from "../features/Products/drawerSlice";
-import CartFab from "./CartFab";
 import CartMain from "./CartMain";
 import {Grid} from "@mui/material";
 
-
-
 const drawerWidth = 240;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
+const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{
     open?: boolean;
-}>(({ theme, open }) => ({
+}>(({theme, open}) => ({
     flexGrow: 1,
     padding: theme.spacing(0),
     transition: theme.transitions.create('margin', {
@@ -53,7 +39,7 @@ interface AppBarProps extends MuiAppBarProps {
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
+})<AppBarProps>(({theme, open}) => ({
     transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
@@ -68,7 +54,7 @@ const AppBar = styled(MuiAppBar, {
     }),
 }));
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -82,17 +68,13 @@ export default function PersistentDrawerRight() {
     const open = useSelector((state: any) => state.drawer.open);
     const dispatch = useDispatch();
 
-    const handleDrawerOpen = () => {
-        dispatch(setOpen(true));
-    };
-
     const handleDrawerClose = () => {
         dispatch(setOpen(false));
     };
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
+        <Box sx={{display: 'flex'}}>
+            <CssBaseline/>
             <AppBar position="fixed" open={open}>
             </AppBar>
             <Drawer
@@ -106,12 +88,11 @@ export default function PersistentDrawerRight() {
                 }}
                 variant="persistent"
                 anchor="right"
-                open={open}
-            >
+                open={open} >
                 <DrawerHeader>
                     <h2>Shopping Cart</h2>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </DrawerHeader>
 
@@ -119,13 +100,11 @@ export default function PersistentDrawerRight() {
                     <Grid item xs={12}>
                         <CartMain/>
                     </Grid>
-
                 </Grid>
-
 
             </Drawer>
             <Main open={open}>
-                <DrawerHeader />
+                <DrawerHeader/>
             </Main>
         </Box>
     );

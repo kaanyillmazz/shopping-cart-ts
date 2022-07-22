@@ -2,7 +2,6 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     sorting: "MostPrice",
-
 }
 
 export const sortingSlice = createSlice({
@@ -10,8 +9,6 @@ export const sortingSlice = createSlice({
         setSorting: (state, sorting) => {
             state.sorting = sorting.payload;
         },
-
-
     },
 })
 

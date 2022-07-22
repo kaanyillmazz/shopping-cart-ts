@@ -17,6 +17,7 @@ function myIndexOf(myCart: Product[], item: Product) {
     }
     return -1;
 }
+
 function myIndexOfTitle(myCart: Product[], title: string) {
     for (let i = 0; i < myCart.length; i++) {
         if (myCart[i].title.toString().localeCompare(title) === 0) {
@@ -59,7 +60,7 @@ export const cartSlice = createSlice(
                 let myTitle = titleTemp.payload;
                 console.log(myTitle);
                 console.log(state.myCart[0].title);
-                let myIndex = myIndexOfTitle(state.myCart,myTitle.toString());
+                let myIndex = myIndexOfTitle(state.myCart, myTitle.toString());
                 console.log(myIndex);
                 let myItem = state.myCart[myIndex];
                 let id = myItem.id;
@@ -68,13 +69,13 @@ export const cartSlice = createSlice(
                 let description = myItem.description;
                 let category = myItem.category;
                 let image = myItem.image;
-                let count = (myItem.count)+1;
+                let count = (myItem.count) + 1;
                 let rating = myItem.rating;
-                let productToSend = new Product(id,title,price,description,category,image,count,rating);
+                let productToSend = new Product(id, title, price, description, category, image, count, rating);
                 state.myCart[myIndex] = productToSend;
-            },decreaseCount: (state, titleTemp) => {
+            }, decreaseCount: (state, titleTemp) => {
                 let myTitle = titleTemp.payload;
-                let myIndex = myIndexOfTitle(state.myCart,myTitle);
+                let myIndex = myIndexOfTitle(state.myCart, myTitle);
                 let myItem = state.myCart[myIndex];
                 let id = myItem.id;
                 let title = myItem.title;
@@ -82,11 +83,11 @@ export const cartSlice = createSlice(
                 let description = myItem.description;
                 let category = myItem.category;
                 let image = myItem.image;
-                let count = (myItem.count)-1;
+                let count = (myItem.count) - 1;
                 let rating = myItem.rating;
-                let productToSend = new Product(id,title,price,description,category,image,count,rating);
-                if(state.myCart[myIndex].count === 1) {
-                    state.myCart.splice(myIndex,1);
+                let productToSend = new Product(id, title, price, description, category, image, count, rating);
+                if (state.myCart[myIndex].count === 1) {
+                    state.myCart.splice(myIndex, 1);
                 } else {
                     state.myCart[myIndex] = productToSend;
                 }
@@ -94,6 +95,6 @@ export const cartSlice = createSlice(
         },
     })
 
-export const {addItem, deleteItem, emptyItems,increaseCount,decreaseCount} = cartSlice.actions;
+export const {addItem, deleteItem, emptyItems, increaseCount, decreaseCount} = cartSlice.actions;
 
 export default cartSlice.reducer;

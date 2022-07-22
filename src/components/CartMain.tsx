@@ -1,10 +1,9 @@
 import React from 'react'
-import {Button, Fab, Grid, ListItem, ListItemText, Paper} from "@mui/material";
+import {Button, Fab, Grid, ListItem, ListItemText} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {decreaseCount, emptyItems, increaseCount} from "../features/Products/cartSlice";
 import {Product} from "../features/Products/productsSlice";
 import List from "@mui/material/List";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import Divider from "@mui/material/Divider";
@@ -12,13 +11,12 @@ import Divider from "@mui/material/Divider";
 
 function CartMain(props: any) {
     const myCart = useSelector((state: any) => state.cart.myCart);
-
     const dispatch = useDispatch();
     const titleCreator = (price: number, count:number) => {
-
-        let str = "$"+price+"   "+"Count: "+count;
+        let str = "$"+price+" Count: "+count;
         return str;
     }
+
     const checkoutHandler = () => {
         alert("Items will be shipped soon! Thanks!");
         dispatch(emptyItems());
@@ -32,7 +30,6 @@ function CartMain(props: any) {
         let myTitle = title;
         dispatch(decreaseCount(title));
     }
-
 
     return (
         <Grid container display="flex">
@@ -68,7 +65,6 @@ function CartMain(props: any) {
                     ))}
                 </Grid>
                 <Divider variant="middle" sx={{marginTop: 3, marginBottom: 3}}/>
-
             </Grid>
             <Grid item xs={6}>
                 <Button onClick={checkoutHandler} variant="contained" sx={{backgroundColor: "orangered", marginLeft: 2}}>Checkout</Button>
@@ -76,7 +72,6 @@ function CartMain(props: any) {
             <Grid item xs={6}>
                 <Button onClick={checkoutHandler} variant="contained" sx={{backgroundColor: "red", marginLeft: 2}}>Cancel</Button>
             </Grid>
-
         </Grid>)
 }
 

@@ -1,36 +1,28 @@
 import React from 'react'
 import {Grid, ToggleButton, ToggleButtonGroup} from "@mui/material";
-import Fab from '@mui/material/Fab';
-import Stack from '@mui/material/Stack';
-import {styled} from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import {useDispatch, useSelector} from "react-redux";
-import productsSlice, {
-    filterProducts,
-    Product,
-    resetProducts,
-    setProducts,
-    sortProducts
-} from "../features/Products/productsSlice";
+import {filterProducts, Product, sortProducts} from "../features/Products/productsSlice";
 import {setCategory} from "../features/Products/filterSlice";
 
 
 function CategorySelection(props: any) {
     const dispatch = useDispatch();
-    const products = useSelector((state: any) => state.products.productsArray);
     const priceRange = useSelector((state: any) => state.filter.priceRange);
     const category = useSelector((state: any) => state.filter.category);
     const sorting = useSelector((state: any) => state.sorting.sorting);
-
 
     const handleChange = (e: any) => {
         let newAlignment = e.target.value;
         dispatch(setCategory(newAlignment));
         let ToFilter = e.target.value.toLowerCase();
-        if(ToFilter === "all") {
-            dispatch(filterProducts(function (item: Product) {return (item.price > priceRange[0] && item.price < priceRange[1])}));
+        if (ToFilter === "all") {
+            dispatch(filterProducts(function (item: Product) {
+                return (item.price > priceRange[0] && item.price < priceRange[1])
+            }));
         } else {
-            dispatch(filterProducts(function (item: Product) {return (item.price > priceRange[0] && item.price < priceRange[1] && item.category === ToFilter)}));
+            dispatch(filterProducts(function (item: Product) {
+                return (item.price > priceRange[0] && item.price < priceRange[1] && item.category === ToFilter)
+            }));
         }
         handleSorting();
     };
@@ -62,7 +54,7 @@ function CategorySelection(props: any) {
                     color="warning"
                     value={category}
                     exclusive
-                    onChange={handleChange} >
+                    onChange={handleChange}>
                     <ToggleButton value="all">all</ToggleButton>
                     <ToggleButton value="women's clothing">women's clothing</ToggleButton>
                     <ToggleButton value="men's clothing">men's clothing</ToggleButton>
