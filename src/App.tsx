@@ -18,14 +18,26 @@ const baseURL = "https://fakestoreapi.com/products";
 function App() {
     const dispatch = useDispatch();
 
-    axios.get(`${baseURL}`).then((response) => {
-        dispatch(setProducts(response.data));
-    });
+
+    const countSetter = (data: any) => {
+        for(let i = 0; i < data.length; i++) {
+            data[i].count = 0;
+        }
+        dispatch(setProducts(data));
+        dispatch(setDefaultProducts(data));
+    }
 
 
-    axios.get(`${baseURL}`).then((response) => {
-        dispatch(setDefaultProducts(response.data));
-    });
+    async function getPost() {
+        const response = await axios.get(`${baseURL}`);
+        let data = response.data;
+        countSetter(data);
+
+    }
+
+    getPost();
+
+
 
 
     return (

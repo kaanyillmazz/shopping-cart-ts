@@ -1,17 +1,33 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-    export interface Rating {
-        rate: number;
-        count: number;
+    export class Rating {
+    constructor(props: any) {
+        this.rate = props.rate;
+        this.count= props.count;
     }
 
-    export interface Product {
+        rate:number = 1;
+        count:number = 1 ;
+    }
+
+    export class Product {
+    constructor(id:any,title:any,price:any,description:any,category:any,image:any,count:any,rating:any) {
+        this.id= id;
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+        this.image = image;
+        this.count = count;
+        this.rating = rating;
+    }
         id: number;
         title: string;
         price: number;
         description: string;
         category: string;
         image: string;
+        count: number;
         rating: Rating;
     }
 

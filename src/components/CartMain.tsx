@@ -11,10 +11,9 @@ function CartMain(props: any) {
     const myCart = useSelector((state: any) => state.cart.myCart);
 
     const dispatch = useDispatch();
-    const titleCreator = (price: number) => {
-        console.log(price);
-        let str = "$"+price;
-        console.log(str)
+    const titleCreator = (price: number, count:number) => {
+
+        let str = "$"+price+"  count:"+count;
         return str;
     }
     const checkoutHandler = () => {
@@ -36,7 +35,7 @@ function CartMain(props: any) {
                                 <ListItem>
                                     <ListItemText
                                         primary={product.title}
-                                        secondary={titleCreator(product.price)}
+                                        secondary={titleCreator(product.price,product.count)}
                                     />
                                 </ListItem>
 
