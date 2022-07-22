@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Fab, Grid, ListItem, ListItemText} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {decreaseCount, emptyItems, increaseCount} from "../features/Products/cartSlice";
+import {decreaseCount, emptyItems, getCount, getTotal, increaseCount} from "../features/Products/cartSlice";
 import {Product} from "../features/Products/productsSlice";
 import List from "@mui/material/List";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
@@ -13,8 +13,8 @@ import {setOpen} from "../features/Products/dialogSlice";
 function CartMain(props: any) {
     const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
-    const titleCreator = (price: number, count:number) => {
-        let str = "$"+price+" Count: "+count;
+    const titleCreator = (price: number, count: number) => {
+        let str = "$" + price + " Count: " + count;
         return str;
     }
 
@@ -45,36 +45,55 @@ function CartMain(props: any) {
                     {myCart.map((product: Product, index: number) => (
 
                         <List dense={true}>
-                                <ListItem>
-                                    <Grid container>
+                            <ListItem>
+                                <Grid container>
                                     <Grid item xs={12}>
-                                    <ListItemText
-                                        primary={product.title}
-                                        secondary={titleCreator(product.price,product.count)}
-                                    />
+                                        <ListItemText
+                                            primary={product.title}
+                                            secondary={titleCreator(product.price, product.count)}
+                                        />
                                     </Grid>
                                     <Grid item spacing={3} xs={12}>
-                                    <Fab  onClick={()=>{increaseHandler(product.title)}} size="small" style={{position: 'absolute',  height: 20, width: 20, minHeight: 20, backgroundColor: "orangered"}} >
-                                        <AddOutlinedIcon fontSize="small"/>
-                                    </Fab>
-                                    <Fab  onClick={()=>{decreaseHandler(product.title)}} size="small" style={{position: 'absolute', left: 45, height: 20, width: 20, minHeight: 20, backgroundColor: "orangered"}} >
-                                        <RemoveOutlinedIcon fontSize="small"/>
-                                    </Fab>
+                                        <Fab onClick={() => {
+                                            increaseHandler(product.title)
+                                        }} size="small" style={{
+                                            position: 'absolute',
+                                            height: 20,
+                                            width: 20,
+                                            minHeight: 20,
+                                            backgroundColor: "orangered"
+                                        }}>
+                                            <AddOutlinedIcon fontSize="small"/>
+                                        </Fab>
+                                        <Fab onClick={() => {
+                                            decreaseHandler(product.title)
+                                        }} size="small" style={{
+                                            position: 'absolute',
+                                            left: 45,
+                                            height: 20,
+                                            width: 20,
+                                            minHeight: 20,
+                                            backgroundColor: "orangered"
+                                        }}>
+                                            <RemoveOutlinedIcon fontSize="small"/>
+                                        </Fab>
                                     </Grid>
-                                    </Grid>
-                                </ListItem>
-
+                                </Grid>
+                            </ListItem>
                         </List>
 
                     ))}
                 </Grid>
+                <h4 style={{marginLeft: 15}}>Total: ${getTotal(myCart)}</h4>
                 <Divider variant="middle" sx={{marginTop: 3, marginBottom: 3}}/>
             </Grid>
             <Grid item xs={6}>
-                <Button onClick={checkoutHandler} variant="contained" sx={{backgroundColor: "orangered", marginLeft: 2}}>Checkout</Button>
+                <Button onClick={checkoutHandler} variant="contained"
+                        sx={{backgroundColor: "orangered", marginLeft: 2}}>Checkout</Button>
             </Grid>
             <Grid item xs={6}>
-                <Button onClick={cancelHandler} variant="contained" sx={{backgroundColor: "red", marginLeft: 2}}>Cancel</Button>
+                <Button onClick={cancelHandler} variant="contained"
+                        sx={{backgroundColor: "red", marginLeft: 2}}>Cancel</Button>
             </Grid>
         </Grid>)
 }

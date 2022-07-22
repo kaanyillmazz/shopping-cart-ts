@@ -1,10 +1,20 @@
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, ListItem, ListItemText,} from '@mui/material';
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Grid,
+    ListItem,
+    ListItemText,
+} from '@mui/material';
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {setOpen} from "../features/Products/dialogSlice";
 import {Product} from "../features/Products/productsSlice";
 import List from "@mui/material/List";
-import {emptyItems} from "../features/Products/cartSlice";
+import {emptyItems, getTotal} from "../features/Products/cartSlice";
 
 
 const titleCreator = (price: number, count: number) => {
@@ -54,6 +64,7 @@ function CheckoutScreen(props: any) {
                         </Grid>
                     ))}
                 </Grid>
+                <h4 style={{marginLeft: 15}}>Total: ${getTotal(myCart)}</h4>
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
@@ -63,4 +74,5 @@ function CheckoutScreen(props: any) {
     </div>)
 
 }
+
 export default CheckoutScreen;

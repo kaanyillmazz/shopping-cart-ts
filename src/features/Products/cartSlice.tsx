@@ -18,6 +18,15 @@ export function myIndexOf(myCart: Product[], item: Product) {
     return -1;
 }
 
+
+export function getTotal(myCart: Product[]) {
+    let total = 0;
+    for (let i = 0; i < myCart.length; i++) {
+      total = total + myCart[i].count * myCart[i].price;
+    }
+    return total;
+}
+
 export function getCount(myCart: Product[], item: Product) {
     return myCart[myIndexOf(myCart,item)].count;
 }
