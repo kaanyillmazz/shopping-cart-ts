@@ -24,7 +24,7 @@ export function getTotal(myCart: Product[]) {
     for (let i = 0; i < myCart.length; i++) {
       total = total + myCart[i].count * myCart[i].price;
     }
-    return total;
+    return total.toFixed(2);
 }
 
 export function getCount(myCart: Product[], item: Product) {
