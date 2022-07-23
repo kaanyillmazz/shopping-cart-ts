@@ -11,6 +11,7 @@ import axios from "axios";
 import SortingComponent from "./components/SortingComponent";
 import PriceRangeSelector from "./components/PriceRangeSelector";
 import CheckoutScreen from "./components/CheckoutScreen";
+import OptionsFab from "./components/OptionsFab";
 
 const baseURL = "https://fakestoreapi.com/products";
 
@@ -37,15 +38,11 @@ function App() {
         <Grid container className="App">
             <Grid container item md={2} xs={12} display="flex" justifyContent="center">
                 <CheckoutScreen/>
-                <Grid item md={12} xs={12}>
-                    <CategorySelection/>
-                    <PriceRangeSelector/>
-                    <SortingComponent/>
-                </Grid>
             </Grid>
             <Grid container item md={10} xs={12} display="flex">
                 <ProductList/>
             </Grid>
+            <OptionsFab/>
             <CartFab/>
         </Grid>
     );

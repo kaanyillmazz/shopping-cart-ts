@@ -5,6 +5,7 @@ import sortingSlice from "../features/Products/sortingSlice";
 import drawerSlice from "../features/Products/drawerSlice";
 import cartSlice from "../features/Products/cartSlice";
 import dialogSlice from "../features/Products/dialogSlice";
+import optionsSlice from "../features/Products/optionsSlice";
 
 
 
@@ -16,6 +17,7 @@ export const store = configureStore({
         sorting: sortingSlice,
         drawer: drawerSlice,
         cart: cartSlice,
-        dialog: dialogSlice
+        dialog: dialogSlice,
+        options: optionsSlice
     },
 })

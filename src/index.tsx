@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {store} from './app/store'
 import {Provider} from 'react-redux'
 import PersistentDrawerRight from "./components/PersistentDrawerRight";
+import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
 
 
 window.document.title="Shopping Cart TS";
@@ -16,6 +17,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <Provider store={store}>
+        <PersistentDrawerLeft/>
         <PersistentDrawerRight/>
         <App />
 
