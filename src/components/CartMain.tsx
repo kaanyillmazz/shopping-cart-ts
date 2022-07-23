@@ -22,7 +22,6 @@ function CartMain(props: any) {
         dispatch(setOpen(true));
     }
     const cancelHandler = () => {
-        alert("Items will be shipped soon! Thanks!");
         dispatch(emptyItems());
     }
 
