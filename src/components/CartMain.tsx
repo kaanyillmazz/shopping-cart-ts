@@ -10,6 +10,7 @@ import Divider from "@mui/material/Divider";
 import {setOpen} from "../features/Products/dialogSlice";
 
 
+//this component displays items in cart
 function CartMain(props: any) {
     const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
@@ -18,17 +19,21 @@ function CartMain(props: any) {
         return str;
     }
 
+    //when you click checkout it opens checkout screen
     const checkoutHandler = () => {
         dispatch(setOpen(true));
     }
+    //when you click cancel it empties the cart state array
     const cancelHandler = () => {
         dispatch(emptyItems());
     }
 
+    //increase selected item count
     const increaseHandler = (title: any) => {
         let myTitle = title;
         dispatch(increaseCount(myTitle));
     }
+    //decrease selected item count
     const decreaseHandler = (title: any) => {
         let myTitle = title;
         dispatch(decreaseCount(title));

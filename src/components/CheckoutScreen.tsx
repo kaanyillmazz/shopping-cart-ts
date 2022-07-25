@@ -17,16 +17,19 @@ import List from "@mui/material/List";
 import {emptyItems, getTotal} from "../features/Products/cartSlice";
 
 
+//process the title and item count to display it
 const titleCreator = (price: number, count: number) => {
     let str = "$" + price + " Count: " + count;
     return str;
 }
 
 function CheckoutScreen(props: any) {
+    //when you click close it closes
     function handleClose(event: any) {
         dispatch(setOpen(false));
     }
 
+    //when you click checkout it first buys items then closes
     function handleCheckoutClose(event: any) {
         dispatch(setOpen(false));
         alert("items will be shipped soon! thanks!");
@@ -37,6 +40,7 @@ function CheckoutScreen(props: any) {
     const open = useSelector((state: any) => state.dialog.open);
     const myCart = useSelector((state: any) => state.cart.myCart);
 
+    //map the cart items to lists of items and display them
     return (<div>
         <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Checkout</DialogTitle>

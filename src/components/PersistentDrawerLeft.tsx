@@ -16,6 +16,8 @@ import PriceRangeSelector from "./PriceRangeSelector";
 import SortingComponent from "./SortingComponent";
 import {setOpen} from "../features/Products/optionsSlice";
 
+//this component displays filtering options
+
 const drawerWidth = 300;
 
 const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{

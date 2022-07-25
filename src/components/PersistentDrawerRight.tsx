@@ -12,6 +12,8 @@ import {setOpen} from "../features/Products/drawerSlice";
 import CartMain from "./CartMain";
 import {Grid} from "@mui/material";
 
+//this component holds items in cart and displays them
+
 const drawerWidth = 240;
 
 const Main = styled('main', {shouldForwardProp: (prop) => prop !== 'open'})<{

@@ -17,16 +17,20 @@ function PriceRangeSelector(props: any) {
         return `${priceRange}`;
     }
 
+    //set price range on change so that buttons are usable
     const handleChange = (event: any, newValue: any) => {
         dispatch(setPriceRange(newValue));
     };
 
+    //when a button is released, dispatch filter function
     const handleChangeCommitted = (event: any, newValue: any) => {
         if (category === "all") {
+            //if category is all, only send price range
             dispatch(filterProducts(function (item: Product) {
                 return (item.price > priceRange[0] && item.price < priceRange[1]);
             }))
         } else {
+            //if there is a category set, send the category to filter as well
             dispatch(filterProducts(function (item: Product) {
                 return (item.price > priceRange[0] && item.price < priceRange[1] && item.category === category);
             }))
@@ -36,22 +40,24 @@ function PriceRangeSelector(props: any) {
 
     };
 
+    //sorting needs to be handled after filtering is done
     const handleSorting = () => {
         let value0 = sorting;
         if (value0 === "MostPrice") {
-            //sort from the most points
+            //sort from the most price
             dispatch(sortProducts((function (a: any, b: any) {
                 return b.price - a.price
             })));
         } else if (value0 === "LeastPrice") {
             console.log("least")
-            //sort from the least points
+            //sort from the least price
             dispatch(sortProducts((function (a: any, b: any) {
                 return a.price - b.price
             })));
         }
     };
 
+    //return the price range component
     return (
         <Grid container display="flex" justifyContent="center">
             <h2 style={{padding: 0, marginTop: 25, marginBottom: 0, color: "orangered"}}>Price Range</h2>
@@ -59,7 +65,7 @@ function PriceRangeSelector(props: any) {
                     min={0} max={1000}
                     size="small"
                     color="secondary"
-                    getAriaLabel={() => 'Temperature range'}
+                    getAriaLabel={() => 'Price range'}
                     value={priceRange}
                     onChange={handleChange}
                     onChangeCommitted={handleChangeCommitted}

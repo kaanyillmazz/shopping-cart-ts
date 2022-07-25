@@ -5,7 +5,7 @@ import {setOpen} from "../features/Products/drawerSlice";
 import {useDispatch} from "react-redux";
 
 
-
+//this is a floating button that manages if cart drawer is open
 function CartFab(props: any) {
 
     const dispatch = useDispatch();

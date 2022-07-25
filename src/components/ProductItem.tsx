@@ -9,16 +9,17 @@ function ProductItem(props: any) {
     const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
 
+    // add an item to cart
     const addToCart = (index: number) => {
-        console.log(index);
-        console.log(products[index]);
         dispatch(addItem(products[index]));
     }
 
+    //give this button to map function, so it maps another one for every single product
     const myButton = (product0: any, index0: any) => {
         let product = product0;
         let index = index0;
         let myButton0;
+        //check if product is in cart, change the button accordingly
         if (myIndexOf(myCart, product) != -1) {
             myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "lightslategray"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
@@ -28,6 +29,7 @@ function ProductItem(props: any) {
     }
 
 
+    //map products so it displays all of them
     return (
         <Grid container xs={12} md={12} display="flex">
             {products.map((product: any, index: number) => (

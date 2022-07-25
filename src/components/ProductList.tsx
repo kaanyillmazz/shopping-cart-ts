@@ -8,6 +8,7 @@ function ProductList(props: any) {
     let productCount: number = products.length;
 
 
+    //get all the products and put them in a container
     return (
         <Grid container display="flex">
             <Grid item xs={12}>
