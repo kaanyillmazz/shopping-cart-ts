@@ -6,4 +6,4 @@ Redux was used for states. \
 Axios and fakestoreapi was used for product database. \
 To start, install the dependencies and run the npm from project directory.
 
-Live demo here: [Shopping Cart ts](yilmaz-shopping-cart.surge.sh).
+Live demo here: [Shopping Cart ts](https://yilmaz-shopping-cart.surge.sh/).
