@@ -2,9 +2,13 @@ import React from 'react'
 import {Button, Grid, Paper} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {addItem, getCount, myIndexOf} from "../features/Products/cartSlice";
+import ProductPage from "./pages/ProductPage";
+import {useNavigate} from "react-router-dom";
 
 
 function ProductItem(props: any) {
+    let navigate = useNavigate();
+
     const products = useSelector((state: any) => state.products.productsArray);
     const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
@@ -12,6 +16,10 @@ function ProductItem(props: any) {
     // add an item to cart
     const addToCart = (index: number) => {
         dispatch(addItem(products[index]));
+    }
+
+    const navigator = (productId: number) => {
+        navigate(`/item/${productId}`, {replace: true})
     }
 
     //give this button to map function, so it maps another one for every single product
@@ -35,7 +43,7 @@ function ProductItem(props: any) {
             {products.map((product: any, index: number) => (
                 <Grid item xs={12} sm={6} md={6} lg={3}>
                     <Paper>
-                        <img height={400} width={275} src={product.image}/>
+                        <img onClick={()=>{navigator(product.id)}} height={400} width={275} src={product.image}/>
                         <Grid height={250} container display="flex">
                             <Grid item xs={12}>
                                 <h4>{product.title}</h4>

@@ -83,7 +83,7 @@ export default function PersistentDrawerLeft() {
         //show and hide button hides itself if the screen is bigger than md
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
-            <AppBar position="fixed" open={open || matches}>
+            <AppBar position="fixed" open={open}>
             </AppBar>
             <Drawer
                 sx={{
@@ -96,8 +96,8 @@ export default function PersistentDrawerLeft() {
                 }}
                 variant="persistent"
                 anchor="left"
-                open={open || matches} >
-                <DrawerHeader sx={{display: {lg: "none", md: "none", sm: "flex"}}}>
+                open={open} >
+                <DrawerHeader sx={{display: {lg: "flex", md: "flex", sm: "flex"}}}>
                     <h2>Filter</h2>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
@@ -113,7 +113,7 @@ export default function PersistentDrawerLeft() {
                 </Grid>
 
             </Drawer>
-            <Main open={open || matches}>
+            <Main open={open}>
                 <DrawerHeader/>
             </Main>
         </Box>
