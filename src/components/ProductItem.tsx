@@ -29,9 +29,9 @@ function ProductItem(props: any) {
         let myButton0;
         //check if product is in cart, change the button accordingly
         if (myIndexOf(myCart, product) != -1) {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "lightblue"}}>In cart {getCount(myCart,product)}</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "#00a181"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "tomato"}}>Add To Cart</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "#1dde8e"}}>Add To Cart</Button>);
         }
         return myButton0;
     }

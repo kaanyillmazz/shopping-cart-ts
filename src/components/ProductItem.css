@@ -10,8 +10,10 @@
 }
 .Main .paperHolder .paper {
     height: 525px;
-    background: hsl(0 100% 100% / 55%);
+    background: hsla(50, 64%, 67%, 0.55);
     backdrop-filter: blur(10px);
+
+
 
 
 }
