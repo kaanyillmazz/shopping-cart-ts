@@ -40,7 +40,7 @@ function CheckoutPage(props: any) {
      };
 
     return (
-        <Grid container xs={12} className="checkoutContainer" id="checkoutContainer">
+        <Grid container xs={12} className="checkoutContainer bgAnimate" id="checkoutContainer">
 
             <Grid item xs={12} display={complete} justifyContent="center">
                 <label className="orderCompleteLabel animate">Order Complete!</label>
