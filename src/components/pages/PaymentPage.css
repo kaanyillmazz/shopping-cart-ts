@@ -6,7 +6,11 @@
     bottom: 10px;
 }
 .paymentFormContainer {
-    transition: all 1s;
+    transition: all 3s;
+}
+
+.drop {
+    transform: translateX(-100vw);
 }
 
 .animate {

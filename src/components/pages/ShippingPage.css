@@ -5,3 +5,11 @@
     position: relative;
     bottom: 10px;
 }
+
+.shippingFormContainer {
+    transition: all 3s;
+}
+
+.drop {
+    transform: translateX(-100vw);
+}

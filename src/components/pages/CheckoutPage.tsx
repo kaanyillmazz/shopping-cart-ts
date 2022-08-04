@@ -16,6 +16,8 @@ function CheckoutPage(props: any) {
     const dispatch = useDispatch();
     const display = useSelector((state: any) => state.checkout.paymentDisplay);
 
+    const complete = useSelector((state: any) => state.checkout.completeDisplay);
+
 
 
 
@@ -31,15 +33,22 @@ function CheckoutPage(props: any) {
     let myButton;
      if(myCart.length > 0) {
          myButton =  <Button sx={{marginLeft: "10px", backgroundColor: "orangered"}}
-                             variant={"contained"} onClick={()=>{dispatch(setPaymentDisplay("flex"))}}>Proceed</Button>
+                             variant={"contained"} onClick={()=>{dispatch(setPaymentDisplay("flex"));
+                                     document.getElementById("cartContainer")!.classList.add("drop");
+                             }}
+         >Proceed</Button>
      };
 
     return (
-        <Grid container xs={12} className="checkoutContainer">
+        <Grid container xs={12} className="checkoutContainer" id="checkoutContainer">
+
+            <Grid item xs={12} display={complete} justifyContent="center">
+                <label className="orderCompleteLabel animate">Order Complete!</label>
+            </Grid>
 
 
 
-            <Grid container xs={4} className="cartContainer">
+            <Grid container xs={4} className="cartContainer" id="cartContainer">
                 <Grid container item xs={12}>
                     <label className="inCart">Items in cart</label>
                 </Grid>

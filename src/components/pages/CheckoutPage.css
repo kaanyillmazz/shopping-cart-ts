@@ -30,6 +30,19 @@
     font-variant: all-small-caps;
 }
 
-.paymentContainer {
+.cartContainer {
+    transition: all 3s;
+}
 
+.drop {
+    transform: translateX(-100vw);
+}
+
+.orderCompleteLabel {
+    font-size: xxx-large;
+    font-variant: all-small-caps;
+    font-family: monospace;
+    font-weight: bold;
+    transition: all 5s;
+    color: #61dafb;
 }

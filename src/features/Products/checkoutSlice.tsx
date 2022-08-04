@@ -3,7 +3,8 @@ import {dialogSlice} from "./dialogSlice";
 
 const initialState = {
     paymentDisplay: "none",
-    shippingDisplay: "none"
+    shippingDisplay: "none",
+    completeDisplay: "none"
 }
 
 export const checkoutSlice = createSlice({
@@ -14,9 +15,12 @@ export const checkoutSlice = createSlice({
         setShippingDisplay: (state, display) => {
             state.shippingDisplay = display.payload;
         },
+        setCompleteDisplay: (state, display) => {
+            state.completeDisplay = display.payload;
+        },
     },
 })
 
-export const {setPaymentDisplay, setShippingDisplay} = checkoutSlice.actions;
+export const {setPaymentDisplay, setShippingDisplay, setCompleteDisplay} = checkoutSlice.actions;
 
 export default checkoutSlice.reducer

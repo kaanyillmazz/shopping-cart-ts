@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import "./ShippingPage.css";
 import {Button, Grid, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
+import {setCompleteDisplay} from "../../features/Products/checkoutSlice";
 
 
 
@@ -12,7 +13,7 @@ function ShippingPage(props: any) {
 
     const display = useSelector((state: any) => state.checkout.shippingDisplay);
 
-
+    const dispatch = useDispatch();
 
     const [countryName, setCountryName] = useState("");
     const [cityName, setCityName] = useState("");
@@ -41,7 +42,7 @@ function ShippingPage(props: any) {
 
     }
 
-    return (<Grid container className="shippingFormContainer animate" display={display}>
+    return (<Grid container className="shippingFormContainer animate" id="shippingFormContainer" display={display}>
         <Grid>
             <form onSubmit={handleSubmit}>
                 <Grid item xs={12}>
@@ -84,7 +85,8 @@ function ShippingPage(props: any) {
         </Grid>
 
         <Grid xs={12}>
-            <Button variant={"contained"}>Proceed</Button>
+            <Button onClick={()=>{document.getElementById("shippingFormContainer")!.classList.add("drop");
+            dispatch(setCompleteDisplay("flex"))}} variant={"contained"}>Proceed</Button>
         </Grid>
 
     </Grid>) ;

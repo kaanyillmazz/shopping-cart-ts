@@ -41,7 +41,7 @@ function PaymentPage(props: any) {
     }
 
 
-    return (<Grid container className="paymentFormContainer animate" display={display}>
+    return (<Grid container className="paymentFormContainer animate" id="paymentFormContainer" display={display}>
         <Grid>
             <form onSubmit={handleSubmit}>
                 <Grid item xs={12}>
@@ -84,7 +84,9 @@ function PaymentPage(props: any) {
         </Grid>
 
         <Grid xs={12}>
-            <Button variant={"contained"} onClick={()=>{dispatch(setShippingDisplay("flex"))}}>Proceed</Button>
+            <Button variant={"contained"} onClick={()=>{dispatch(setShippingDisplay("flex"));
+                document.getElementById("paymentFormContainer")!.classList.add("drop");
+            }}>Proceed</Button>
         </Grid>
 
     </Grid>);
