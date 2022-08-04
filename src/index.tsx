@@ -22,8 +22,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <Provider store={store}>
-        <PersistentDrawerLeft/>
-        <PersistentDrawerRight/>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} />

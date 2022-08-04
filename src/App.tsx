@@ -18,6 +18,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
+import PersistentDrawerRight from "./components/PersistentDrawerRight";
 
 const baseURL = "https://fakestoreapi.com/products";
 
@@ -43,6 +45,8 @@ function App() {
 
     return (
         <Grid container className="App">
+            <PersistentDrawerLeft/>
+            <PersistentDrawerRight/>
             <Grid container item md={2} xs={12} display="flex" justifyContent="center">
                 <CheckoutScreen/>
             </Grid>
@@ -51,6 +55,11 @@ function App() {
             </Grid>
             <OptionsFab/>
             <CartFab/>
+
+            <div className="wave wave1"></div>
+            <div className="wave wave2"></div>
+            <div className="wave wave3"></div>
+            <div className="wave wave4"></div>
         </Grid>
     );
 }

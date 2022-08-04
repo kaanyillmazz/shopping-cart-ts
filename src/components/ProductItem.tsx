@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addItem, getCount, myIndexOf} from "../features/Products/cartSlice";
 import ProductPage from "./pages/ProductPage";
 import {useNavigate} from "react-router-dom";
-
+import "./ProductItem.css";
 
 function ProductItem(props: any) {
     let navigate = useNavigate();
@@ -29,9 +29,9 @@ function ProductItem(props: any) {
         let myButton0;
         //check if product is in cart, change the button accordingly
         if (myIndexOf(myCart, product) != -1) {
-            myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "lightslategray"}}>In cart {getCount(myCart,product)}</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "lightblue"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
-            myButton0 = (<Button onClick={() => {addToCart(index)}} variant="contained" sx={{mb: 2, backgroundColor: "orangered"}}>Add To Cart</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "tomato"}}>Add To Cart</Button>);
         }
         return myButton0;
     }
@@ -39,21 +39,19 @@ function ProductItem(props: any) {
 
     //map products so it displays all of them
     return (
-        <Grid container xs={12} md={12} display="flex">
+        <Grid className="Main" container xs={12} md={10}>
             {products.map((product: any, index: number) => (
-                <Grid item xs={12} sm={6} md={6} lg={3}>
-                    <Paper>
-                        <img onClick={()=>{navigator(product.id)}} height={400} width={275} src={product.image}/>
-                        <Grid height={250} container display="flex">
-                            <Grid item xs={12}>
+                <Grid className="paperHolder" item xs={12} sm={6} md={6} lg={2.8}>
+                    <Paper className="paper">
+                        <img onClick={()=>{navigator(product.id)}} height={400} width={270} src={product.image}/>
+                        <Grid container display="flex" className="infoHolder">
+                            <Grid item xs={12} className="item1">
                                 <h4>{product.title}</h4>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} className="item2">
                                 <h3>${product.price}</h3>
                             </Grid>
-                            <Grid item xs={12}>
-                                {myButton(product, index)}
-                            </Grid>
+                            {myButton(product, index)}
                         </Grid>
                     </Paper>
                 </Grid>

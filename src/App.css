@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: linear-gradient(tomato, red, crimson);
 }
 
 .App-logo {
@@ -36,3 +37,59 @@
     transform: rotate(360deg);
   }
 }
+
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #4dcae5;
+  overflow: hidden;
+}
+
+.App .wave {
+  z-index: 1;
+  background-image: url("wave.png");
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-size: 1000px 100px;
+  margin: 0;
+  padding: 0;
+}
+
+.App .wave.wave1 {
+  animation: myAnimation 15s linear infinite;
+  margin: 0;
+  padding: 0;
+}
+
+.App .wave.wave2 {
+  animation: myAnimation 30s linear infinite;
+  animation-delay: -4s;
+  margin: 0;
+  padding: 0;
+}
+.App .wave.wave3 {
+  animation: myAnimation 10s linear infinite;
+  animation-delay: -5s;
+  margin: 0;
+  padding: 0;
+
+}
+.App .wave.wave4 {
+  animation: myAnimation 5s linear infinite;
+  animation-delay: -7s;
+  margin: 0;
+  padding: 0;
+
+}
+
+@keyframes myAnimation {
+  0% {background-position-x: 0}
+  100% {background-position-x: 1000px}
+
+}
+

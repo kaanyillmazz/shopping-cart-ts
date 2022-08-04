@@ -1,0 +1,42 @@
+.Main {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    z-index: 2;
+}
+
+.Main .paperHolder {
+
+}
+.Main .paperHolder .paper {
+    height: 525px;
+    background: hsl(0 100% 100% / 55%);
+    backdrop-filter: blur(10px);
+
+
+}
+.infoHolder {
+    display: flex;
+    position: relative;
+    height: 220px;
+    justify-content: center;
+
+}
+
+.infoHolder .item1 {
+    line-height: 1rem;
+
+}
+.infoHolder .item2 {
+
+
+}
+.infoHolder .item3 {
+    margin: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+
+}

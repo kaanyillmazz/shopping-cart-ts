@@ -2,6 +2,7 @@ import React from 'react'
 import {Grid} from "@mui/material";
 import ProductItem from "./ProductItem";
 import {useSelector} from "react-redux";
+import "./ProductList.css";
 
 function ProductList(props: any) {
     const products = useSelector((state: any) => state.products.productsArray);
@@ -10,13 +11,9 @@ function ProductList(props: any) {
 
     //get all the products and put them in a container
     return (
-        <Grid container display="flex">
-            <Grid item xs={12}>
+        <Grid container className="Main">
                 <h1>{productCount} products found.</h1>
-            </Grid>
-            <Grid item xs={12} display="flex">
                 <ProductItem/>
-            </Grid>
         </Grid>
 
     );
