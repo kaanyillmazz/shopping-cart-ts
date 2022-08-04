@@ -12,7 +12,7 @@ function ProductList(props: any) {
     //get all the products and put them in a container
     return (
         <Grid container className="Main">
-                <h1>{productCount} products found.</h1>
+                <h1 className="foundLabel">{productCount} products found.</h1>
                 <ProductItem/>
         </Grid>
 

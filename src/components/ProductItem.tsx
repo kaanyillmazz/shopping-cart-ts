@@ -51,7 +51,13 @@ function ProductItem(props: any) {
                             <Grid item xs={12} className="item2">
                                 <h3>${product.price}</h3>
                             </Grid>
-                            {myButton(product, index)}
+                            <Grid item xs={12} className="item2">
+                                {myButton(product, index)}
+                            </Grid>
+
+
+
+
                         </Grid>
                     </Paper>
                 </Grid>

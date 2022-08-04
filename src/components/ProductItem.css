@@ -1,7 +1,8 @@
 .Main {
     display: flex;
     justify-content: center;
-    gap: 3px;
+    column-gap: 5px;
+    row-gap: 2vh;
     z-index: 2;
 }
 
@@ -9,27 +10,48 @@
 
 }
 .Main .paperHolder .paper {
-    height: 525px;
+
     background: hsla(50, 64%, 67%, 0.55);
     backdrop-filter: blur(10px);
+    box-shadow: 1px 1px 1px 1px whitesmoke;
 
+}
+.Main .paperHolder .paper:hover {
+  transform: scale(102%);
+    transition: all 1s;
+
+}
+
+img {
+    filter: drop-shadow(0px 0px 10px whitesmoke);
+    border-radius: 5px;
+
+}
+img:active {
+    transform: scale(200%);
+    transition: all 800ms;
 
 
 
 }
+
 .infoHolder {
     display: flex;
     position: relative;
-    height: 220px;
+    height: 240px;
     justify-content: center;
 
 }
 
 .infoHolder .item1 {
     line-height: 1rem;
+    font-style: italic;
+    font-family: sans-serif;
+    font-variant: all-small-caps;
 
 }
 .infoHolder .item2 {
+    font-variant: proportional-nums;
 
 
 }
@@ -38,7 +60,12 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 2vh;
+
+
+}
+.infoHolder .item3:hover {
+   background-color: #b53822;
 
 
 }

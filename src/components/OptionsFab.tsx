@@ -14,8 +14,8 @@ function OptionsFab(props: any) {
     };
 
     return(
-        <Fab  onClick={handleDrawerOpen} size="medium" style={{position: 'fixed', left: 5, top: 5, height: 50, width: 50, minHeight: 50, backgroundColor: "orangered"}} >
-            <FilterAltIcon fontSize="large"/>
+        <Fab  onClick={handleDrawerOpen} size="medium" style={{position: 'fixed', left: 5, top: 5, height: 50, width: 50, minHeight: 50, backgroundColor: "#1dde8e"}} >
+            <FilterAltIcon fontSize="large" color="warning"/>
         </Fab>
     )
 }
