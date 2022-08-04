@@ -6,6 +6,7 @@ import drawerSlice from "../features/Products/drawerSlice";
 import cartSlice from "../features/Products/cartSlice";
 import dialogSlice from "../features/Products/dialogSlice";
 import optionsSlice from "../features/Products/optionsSlice";
+import checkoutSlice from "../features/Products/checkoutSlice";
 
 
 
@@ -18,6 +19,7 @@ export const store = configureStore({
         drawer: drawerSlice,
         cart: cartSlice,
         dialog: dialogSlice,
-        options: optionsSlice
+        options: optionsSlice,
+        checkout: checkoutSlice
     },
 })

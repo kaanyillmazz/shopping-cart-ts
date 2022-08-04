@@ -9,6 +9,7 @@ import PersistentDrawerRight from "./components/PersistentDrawerRight";
 import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import ProductPage from "./components/pages/ProductPage";
+import CheckoutPage from "./components/pages/CheckoutPage";
 
 
 
@@ -25,6 +26,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="item">
                     <Route path=":id" element={<ProductPage />} />
                 </Route>

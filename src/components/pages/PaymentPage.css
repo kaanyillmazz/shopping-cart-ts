@@ -1,0 +1,23 @@
+.paymentFormContainer .myLabel {
+    margin-bottom: 20px;
+    margin-top: 0px;
+    padding-top: 0px;
+    position: relative;
+    bottom: 10px;
+}
+.paymentFormContainer {
+    transition: all 1s;
+}
+
+.animate {
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -8,10 +8,13 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import Divider from "@mui/material/Divider";
 import {setOpen} from "../features/Products/dialogSlice";
+import {useNavigate} from "react-router-dom";
 
 
 //this component displays items in cart
 function CartMain(props: any) {
+    let navigate = useNavigate();
+
     const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
     const titleCreator = (price: number, count: number) => {
@@ -19,9 +22,10 @@ function CartMain(props: any) {
         return str;
     }
 
+
     //when you click checkout it opens checkout screen
     const checkoutHandler = () => {
-        dispatch(setOpen(true));
+        navigate(`/checkout`, {replace: true})
     }
     //when you click cancel it empties the cart state array
     const cancelHandler = () => {
