@@ -27,33 +27,28 @@ function ProductPage() {
     }, [id]);
 
 
-    return (<Grid container display="flex" justifyContent="center">
-            <section>
-                <Grid item container xs={12} justifyContent="center" display="flex" spacing={"2px"}>
-                    <Grid item container xs={12} justifyContent="center" display="flex" padding="3px" marginTop="3vh">
-                        <label>{product.title}</label>
-                    </Grid>
-                    <Grid item container xs={12} justifyContent="center" display="flex" marginTop="1vh">
-                        <img src={product.image} alt={"adpojfapsj"}/>
-                    </Grid>
-                    <Grid item container xs={12} justifyContent="center" display="flex" marginTop="2vh">
-                        <label className="foreground">{product.description}</label>
-                    </Grid>
-                    <Grid item container xs={12} justifyContent="center" display="flex" marginTop="2vh">
-                        <label className="foreground">${product.price}</label>
-                    </Grid>
-                    <Link className="foreground" to="/">Return Home</Link>
+    return (<Grid container display="flex" justifyContent="center" className="Apppp">
+                <Link className="foreground linkpp" to="/">Return Home</Link>
 
 
+            <Grid item container xs={12} justifyContent="center" display="flex" spacing={"2px"} className="Mainpp">
+                <Grid item container xs={12} justifyContent="center" display="flex" padding="3px" marginTop="3vh">
+                    <label >{product.title}</label>
                 </Grid>
+                <Grid item container xs={12} justifyContent="center" display="flex" marginTop="1vh">
+                    <img src={product.image} alt={"aa"}/>
+                </Grid>
+                <Grid item container xs={12} justifyContent="center" display="flex" marginTop="2vh">
+                    <label  className="foreground">{product.description}</label>
+                </Grid>
+                <Grid item container xs={12} justifyContent="center" display="flex" marginTop="2vh">
+                    <label  className="foreground">${product.price}</label>
+                </Grid>
+            </Grid>
 
-
-                <div className="wave wave1"></div>
-                <div className="wave wave2"></div>
-                <div className="wave wave3"></div>
-                <div className="wave wave4"></div>
-            </section>
-
+            <div className="wave wave1"></div>
+            <div className="wave wave2"></div>
+            <div className="wave wave4"></div>
 
         </Grid>
     );

@@ -1,39 +1,59 @@
+.Mainpp {
+    max-height: 100vh;
 
-section {
+}
+.Apppp .linkpp {
+    text-align: center;
+    justify-content: center;
+    color: whitesmoke;
+    background-image: linear-gradient(90deg, rgba(243, 109, 109, 0.2), rgba(203, 166, 74, 0.2));
+    backdrop-filter: blur(10px);
+    padding: 2vh;
+    position: sticky;
+    right: 0;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 3vh;
+
+}
+
+.Apppp {
     margin: 0;
     padding: 0;
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #4dcae5;
-    overflow: hidden;
+    background: linear-gradient(45deg, darkred 20%, crimson, darkorange 60%, gold, bisque);
+    overflow: scroll;
 }
 
-img {
-    width: 35vh;
-    height: 40vh;
+.Apppp img {
+    width: 40vh;
+    height: 45vh;
 }
 
-label {
+.Apppp label {
     text-align: center;
     padding-inline: 5vw;
-    font-variant: petite-caps;
+    font-family: Tahoma, Algerian,monospace;
+    margin: 2vh;
+    justify-items: center;
+    background-image: linear-gradient(90deg, rgba(243, 109, 109, 0.2), rgba(203, 166, 74, 0.2));
+    backdrop-filter: blur(10px);
 }
-label:first-letter {
-    font-size: 20px;
-    font-style: italic;
-}
+
 
 .foreground {
     z-index: 3;
 }
 
-section .wave {
-    z-index: 2;
+.Apppp .wave {
+    z-index: 1;
     margin: 0;
     padding: 0;
     background-image: url("wave.png");
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -41,20 +61,20 @@ section .wave {
     background-size: 1000px 100px;
 }
 
-section .wave.wave1 {
+.Apppp .wave.wave1 {
     animation: myAnimation 15s linear infinite;
 }
 
-section .wave.wave2 {
+.Apppp .wave.wave2 {
     animation: myAnimation 30s linear infinite;
     animation-delay: -4s;
 }
-section .wave.wave3 {
+.Apppp .wave.wave3 {
     animation: myAnimation 10s linear infinite;
     animation-delay: -5s;
 
 }
-section .wave.wave4 {
+.Apppp .wave.wave4 {
     animation: myAnimation 5s linear infinite;
     animation-delay: -7s;
 

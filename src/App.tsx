@@ -45,8 +45,7 @@ function App() {
 
     return (
         <Grid container className="App">
-            <PersistentDrawerLeft/>
-            <PersistentDrawerRight/>
+
             <Grid container item md={2} xs={12} display="flex" justifyContent="center">
                 <CheckoutScreen/>
             </Grid>
@@ -55,9 +54,11 @@ function App() {
             </Grid>
             <OptionsFab/>
             <CartFab/>
-
+            <PersistentDrawerLeft/>
+            <PersistentDrawerRight/>
             <div className="wave wave1"></div>
             <div className="wave wave4"></div>
+
         </Grid>
     );
 }

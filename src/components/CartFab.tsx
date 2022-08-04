@@ -15,8 +15,8 @@ function CartFab(props: any) {
     };
 
 return(
-    <Fab  onClick={handleDrawerOpen} size="large" style={{position: 'fixed', right: 5, top: 5, height: 20, width: 50, minHeight: 50, backgroundColor: "#1dde8e"}} >
-<ShoppingCartIcon fontSize="large" color="warning"/>
+    <Fab  onClick={handleDrawerOpen} size="large" style={{position: 'fixed', right: "3vh", top: "3vh", height: 60, width: 60, minHeight: 60, backgroundColor: "rgba(189,59,0,0.76)"}} >
+<ShoppingCartIcon fontSize="large" color="action"/>
     </Fab>
 
 

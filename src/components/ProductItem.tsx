@@ -29,9 +29,9 @@ function ProductItem(props: any) {
         let myButton0;
         //check if product is in cart, change the button accordingly
         if (myIndexOf(myCart, product) != -1) {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "#00a181"}}>In cart {getCount(myCart,product)}</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "rgba(236,106,0,0.4)"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "#1dde8e"}}>Add To Cart</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "rgba(220,72,46,0.72)"}}>Add To Cart</Button>);
         }
         return myButton0;
     }
@@ -43,7 +43,7 @@ function ProductItem(props: any) {
             {products.map((product: any, index: number) => (
                 <Grid className="paperHolder" item xs={12} sm={6} md={6} lg={2.8}>
                     <Paper className="paper">
-                        <img onClick={()=>{navigator(product.id)}} height={400} width={270} src={product.image}/>
+                        <img onClick={()=>{navigator(product.id)}} src={product.image}/>
                         <Grid container display="flex" className="infoHolder">
                             <Grid item xs={12} className="item1">
                                 <h4>{product.title}</h4>

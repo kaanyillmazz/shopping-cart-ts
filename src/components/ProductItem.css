@@ -13,7 +13,7 @@
 
     background: hsla(50, 64%, 67%, 0.55);
     backdrop-filter: blur(10px);
-    box-shadow: 1px 1px 1px 1px whitesmoke;
+    box-shadow: 1px 1px 1px 2px whitesmoke;
 
 }
 .Main .paperHolder .paper:hover {
@@ -22,12 +22,14 @@
 
 }
 
-img {
+.paper img {
     filter: drop-shadow(0px 0px 10px whitesmoke);
     border-radius: 5px;
+    height: 340px;
+    width: 275px;
 
 }
-img:active {
+.paper img:active {
     transform: scale(200%);
     transition: all 800ms;
 
