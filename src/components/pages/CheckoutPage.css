@@ -4,7 +4,7 @@
     width: 100%;
     height: 100vh;
     background: linear-gradient(crimson,yellow);
-    transition: all 5s;
+    position: relative;
 }
 
 .bgAnimate {
@@ -13,6 +13,9 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 
+}
+.smallScreen {
+    position: absolute;
 }
 
 @keyframes bg-anim {
@@ -69,7 +72,7 @@
 }
 
 .drop {
-    transform: translateX(-100vw);
+    transform: translateX(-150vw);
 }
 
 .orderCompleteLabel {
