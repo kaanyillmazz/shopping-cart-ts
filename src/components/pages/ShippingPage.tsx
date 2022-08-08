@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 import "./ShippingPage.css";
-import {Button, Grid, Input, TextField} from "@mui/material";
+import {Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {setCompleteDisplay} from "../../features/Products/checkoutSlice";
 

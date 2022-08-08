@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import {Product, setDefaultProducts, setProducts} from "../../features/Products/productsSlice";
-import {Container, Grid} from "@mui/material";
-import {Link, useNavigate, useParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {Grid} from "@mui/material";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 
 import "./ProductPage.css";
@@ -10,9 +8,6 @@ import "./ProductPage.css";
 function ProductPage() {
     const [product, setProduct] = useState({title: " ", description: " ", image: "", price: ""});
     let {id} = useParams();
-
-    let navigate = useNavigate();
-
 
     React.useEffect(() => {
         let myInd: number = 0;

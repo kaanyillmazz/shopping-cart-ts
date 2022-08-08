@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Button, Grid, Input, ListItem, ListItemText} from "@mui/material";
+import {Grid, Input, ListItem, ListItemText} from "@mui/material";
 import {setPaymentDisplay} from "../../features/Products/checkoutSlice";
 import List from "@mui/material/List";
 import {Product} from "../../features/Products/productsSlice";
@@ -19,7 +19,7 @@ function CartPage(props: any) {
 
     let myButton;
     if(myCart.length > 0) {
-        myButton =  <Input value="Proceed" type="submit"
+        myButton =  <Input value="Proceed" type="submit" sx={{marginTop: "1vh"}}
                             onClick={()=>{dispatch(setPaymentDisplay("flex"));
             document.getElementById("cartContainer")!.classList.add("drop");
         }}
