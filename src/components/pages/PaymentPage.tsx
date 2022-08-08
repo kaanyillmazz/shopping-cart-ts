@@ -66,25 +66,27 @@ function PaymentPage(props: any) {
                     <Grid item xs={12}>
                         <TextField required={true} type="text" className="myLabel" id="cardHolderName"
                                    label="Cardholder Name"
-                                   variant="standard"
+                                   margin="dense" variant="filled" size="small"
                                    value={nameField}
                                    onChange={handleChange}/>
                     </Grid>
                     <Grid item xs={12}>
                         <TextField onKeyDown={handleChange} type="tel" required={true} className="myLabel"
                                    id="cardNumber"
-                                   label="Card Number" variant="standard"
+                                   label="Card Number"
+                                   margin="dense" variant="filled" size="small"
                                    value={cardNumber}
                         />
                     </Grid>
                     <Grid item xs={5}>
-                        <TextField required={true} type="month" className="myLabel" id="cardExp" label="Exp Date"
-                                   variant="standard" value={cardExp}
+                        <TextField margin="dense" variant="filled" size="small" required={true} type="month"
+                                   className="myLabel" id="cardExp" label="Expiration Date"
+                                   value={cardExp}
                                    onChange={handleChange}/>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                         <TextField required={true} type="tel" className="myLabel" id="cardCCV" label="CCV"
-                                   variant="standard" value={cardCCV}
+                                   margin="dense" variant="filled" size="small" value={cardCCV}
                                    onChange={handleChange}/>
                     </Grid>
 

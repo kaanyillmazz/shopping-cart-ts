@@ -58,6 +58,7 @@
 .cartContainer .infoHolder {
     display: flex;
     justify-content: left;
+    height: fit-content;
 
 }
 .cartContainer .infoHolder label {

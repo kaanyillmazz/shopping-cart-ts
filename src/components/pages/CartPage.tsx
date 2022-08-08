@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Button, Grid, ListItem, ListItemText} from "@mui/material";
+import {Button, Grid, Input, ListItem, ListItemText} from "@mui/material";
 import {setPaymentDisplay} from "../../features/Products/checkoutSlice";
 import List from "@mui/material/List";
 import {Product} from "../../features/Products/productsSlice";
@@ -19,11 +19,11 @@ function CartPage(props: any) {
 
     let myButton;
     if(myCart.length > 0) {
-        myButton =  <Button sx={{marginLeft: "10px", backgroundColor: "orangered"}}
-                            variant={"contained"} onClick={()=>{dispatch(setPaymentDisplay("flex"));
+        myButton =  <Input value="Proceed" type="submit"
+                            onClick={()=>{dispatch(setPaymentDisplay("flex"));
             document.getElementById("cartContainer")!.classList.add("drop");
         }}
-        >Proceed</Button>
+        ></Input>
     };
 
     return (<Grid container className="cartContainer" id="cartContainer">
@@ -34,7 +34,7 @@ function CartPage(props: any) {
                     <List dense={true}>
                         {myCart.map((product: Product, index: number) => (
                             <Grid item xs={12}>
-                                <ListItem sx={{border: "solid 1px orangered"}}>
+                                <ListItem sx={{border: "solid 0.5px black"}}>
                                     <Grid container item>
                                         <Grid item xs={10}>
                                             <ListItemText
@@ -52,10 +52,10 @@ function CartPage(props: any) {
                     </List>
                 </Grid>
                 <Grid container item xs={12} className={"infoHolder"}>
-                    <Grid item>
+                    <Grid item xs={12}>
                         <label>Total: ${getTotal(myCart)}</label>
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={12}>
                         {myButton}
                     </Grid>
                 </Grid>

@@ -48,26 +48,30 @@ function ShippingPage(props: any) {
                 <form onSubmit={handleSubmit}>
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="countryName" label="Country" variant="standard"
+                        <TextField required={true} className="myLabel" id="countryName" label="Country" margin="dense"
+                                   variant="filled" size="small"
                                    value={countryName}
                                    onChange={handleChange}/>
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="cityName" label="City" variant="standard"
+                        <TextField required={true} className="myLabel" id="cityName" label="City" margin="dense"
+                                   variant="filled" size="small"
                                    value={cityName}
                                    onChange={handleChange}/>
                     </Grid>
 
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="districtName" label="District" variant="standard"
+                        <TextField required={true} className="myLabel" id="districtName" label="District" margin="dense"
+                                   variant="filled" size="small"
                                    value={districtName}
                                    onChange={handleChange}/>
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="addressName" label="Address" variant="standard"
+                        <TextField required={true} className="myLabel" id="addressName" label="Address" margin="dense"
+                                   variant="filled" size="small"
                                    value={addressName}
                                    onChange={handleChange}/>
                     </Grid>
