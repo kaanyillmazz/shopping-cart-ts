@@ -8,10 +8,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import {useTheme} from "@mui/material/styles";
 import CartPage from "./CartPage";
 
-function CheckoutPage(props: any) {
-
+function CheckoutPage() {
     const complete = useSelector((state: any) => state.checkout.completeDisplay);
-
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -19,28 +17,27 @@ function CheckoutPage(props: any) {
     let ShippingPageGrid;
     let CartPageGrid;
 
-    PaymentPageGrid = matches ? ( <Grid className="paymentContainer" xs={12} md={4}>
+    PaymentPageGrid = matches ? (<Grid className="paymentContainerGrid" xs={12} md={4}>
         <PaymentPage/>
-    </Grid>) : (<Grid className="paymentContainer smallScreen" xs={12} md={4}>
+    </Grid>) : (<Grid className="paymentContainerGrid smallScreen" xs={12} md={4}>
         <PaymentPage/>
     </Grid>);
 
-    ShippingPageGrid = matches ? ( <Grid className="shippingContainer" xs={12} md={4}>
+    ShippingPageGrid = matches ? (<Grid className="shippingContainerGrid" xs={12} md={4}>
         <ShippingPage/>
-    </Grid>) : (<Grid className="shippingContainer smallScreen" xs={12} md={4}>
+    </Grid>) : (<Grid className="shippingContainerGrid smallScreen" xs={12} md={4}>
         <ShippingPage/>
     </Grid>);
 
-    CartPageGrid = matches ? ( <Grid className="cartContainer" xs={12} md={4}>
+    CartPageGrid = matches ? (<Grid className="cartContainerGrid" xs={12} md={4}>
         <CartPage/>
-    </Grid>) : (<Grid className="cartContainer smallScreen" xs={12} md={4}>
+    </Grid>) : (<Grid className="cartContainerGrid smallScreen" xs={12} md={4}>
         <CartPage/>
     </Grid>);
-
 
 
     return (
-        <Grid container xs={12} className="checkoutContainer bgAnimate" id="checkoutContainer">
+        <Grid container className="checkoutMain bgAnimate" id="checkoutMain">
 
             <Grid item xs={12} display={complete} justifyContent="center">
                 <label className="orderCompleteLabel animate">Order Complete!</label>
@@ -49,7 +46,6 @@ function CheckoutPage(props: any) {
             {CartPageGrid}
             {PaymentPageGrid}
             {ShippingPageGrid}
-
         </Grid>
 
     )

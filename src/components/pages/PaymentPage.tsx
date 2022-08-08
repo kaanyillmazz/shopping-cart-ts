@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-
-
 import "./PaymentPage.css";
 import {Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {setShippingDisplay} from "../../features/Products/checkoutSlice";
 
-function PaymentPage(props: any) {
+function PaymentPage() {
 
     const dispatch = useDispatch();
     const display = useSelector((state: any) => state.checkout.paymentDisplay);
@@ -20,7 +18,7 @@ function PaymentPage(props: any) {
     const handleSubmit = (event: any) => {
         event.preventDefault();
         dispatch(setShippingDisplay("flex"));
-        document.getElementById("paymentFormContainer")!.classList.add("drop");
+        document.getElementById("paymentContainer")!.classList.add("drop");
     }
     const handleChange = (event: any) => {
         let length = event.target.value.length;
@@ -60,39 +58,40 @@ function PaymentPage(props: any) {
 
 
     return (
-        <Grid container className="paymentFormContainer animate" id="paymentFormContainer" display={display}>
-            <Grid>
-                <form onSubmit={handleSubmit}>
+        <Grid container className="paymentContainer animate" id="paymentContainer" display={display}>
+            <label className="heading">Payment Information</label>
+            <form onSubmit={handleSubmit}>
+                <Grid container item>
                     <Grid item xs={12}>
-                        <TextField required={true} type="text" className="myLabel" id="cardHolderName"
+                        <TextField fullWidth required={true} type="text" id="cardHolderName"
                                    label="Cardholder Name"
                                    margin="dense" variant="filled" size="small"
                                    value={nameField}
                                    onChange={handleChange}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField onKeyDown={handleChange} type="tel" required={true} className="myLabel"
+                        <TextField fullWidth onKeyDown={handleChange} type="tel" required={true}
                                    id="cardNumber"
                                    label="Card Number"
                                    margin="dense" variant="filled" size="small"
                                    value={cardNumber}
                         />
                     </Grid>
-                    <Grid item xs={5}>
-                        <TextField margin="dense" variant="filled" size="small" required={true} type="month"
-                                   className="myLabel" id="cardExp" label="Expiration Date"
+                    <Grid item xs={12}>
+                        <TextField fullWidth margin="dense" variant="filled" size="small" required={true} type="month"
+                                   id="cardExp" label="Expiration Date"
                                    value={cardExp}
                                    onChange={handleChange}/>
                     </Grid>
-                    <Grid item xs={4}>
-                        <TextField required={true} type="tel" className="myLabel" id="cardCCV" label="CCV"
+                    <Grid item xs={12}>
+                        <TextField fullWidth required={true} type="tel" id="cardCCV" label="CCV"
                                    margin="dense" variant="filled" size="small" value={cardCCV}
                                    onChange={handleChange}/>
                     </Grid>
+                </Grid>
 
-                    <Input type="submit" value="Proceed"></Input>
-                </form>
-            </Grid>
+                <Input type="submit" value="Proceed"></Input>
+            </form>
         </Grid>);
 }
 

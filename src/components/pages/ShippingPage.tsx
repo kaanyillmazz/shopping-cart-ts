@@ -20,7 +20,7 @@ function ShippingPage(props: any) {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        document.getElementById("shippingFormContainer")!.classList.add("drop");
+        document.getElementById("shippingContainer")!.classList.add("drop");
         dispatch(setCompleteDisplay("flex"))
     }
     const handleChange = (event: any) => {
@@ -43,19 +43,19 @@ function ShippingPage(props: any) {
     }
 
     return (
-        <Grid container className="shippingFormContainer animate" id="shippingFormContainer" display={display}>
-            <Grid>
-                <form onSubmit={handleSubmit}>
-
+        <Grid container className="shippingContainer animate" id="shippingContainer" display={display}>
+            <label className="heading">Shipping Address</label>
+            <form onSubmit={handleSubmit}>
+                <Grid container item>
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="countryName" label="Country" margin="dense"
+                        <TextField fullWidth required={true} id="countryName" label="Country" margin="dense"
                                    variant="filled" size="small"
                                    value={countryName}
                                    onChange={handleChange}/>
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="cityName" label="City" margin="dense"
+                        <TextField  fullWidth  required={true} id="cityName" label="City" margin="dense"
                                    variant="filled" size="small"
                                    value={cityName}
                                    onChange={handleChange}/>
@@ -63,22 +63,23 @@ function ShippingPage(props: any) {
 
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="districtName" label="District" margin="dense"
+                        <TextField  fullWidth  required={true} id="districtName" label="District" margin="dense"
                                    variant="filled" size="small"
                                    value={districtName}
                                    onChange={handleChange}/>
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField required={true} className="myLabel" id="addressName" label="Address" margin="dense"
+                        <TextField  fullWidth  required={true} id="addressName" label="Address" margin="dense"
                                    variant="filled" size="small"
                                    value={addressName}
                                    onChange={handleChange}/>
                     </Grid>
-                    <Input type="submit" value="Complete Order"></Input>
-                </form>
+                </Grid>
+                <Input type="submit" value="Complete Order"></Input>
+            </form>
 
-            </Grid>
+
         </Grid>);
 }
 

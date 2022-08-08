@@ -22,11 +22,11 @@ function ProductPage() {
     }, [id]);
 
 
-    return (<Grid container display="flex" justifyContent="center" className="Apppp">
-                <Link className="foreground linkpp" to="/">Return Home</Link>
+    return (<Grid container display="flex" justifyContent="center" className="ProductPageMain">
+                <Link className="foreground" to="/">Return Home</Link>
 
 
-            <Grid item container xs={12} justifyContent="center" display="flex" spacing={"2px"} className="Mainpp">
+            <Grid item container xs={12} justifyContent="center" display="flex" spacing={"2px"} className="productPageContainer">
                 <Grid item container xs={12} justifyContent="center" display="flex" padding="3px" marginTop="3vh">
                     <label >{product.title}</label>
                 </Grid>

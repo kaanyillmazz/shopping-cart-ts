@@ -1,5 +1,6 @@
-.checkoutContainer {
+.checkoutMain {
     display:flex;
+    justify-content: center;
     padding: 10vw;
     width: 100%;
     height: 100vh;
@@ -16,6 +17,9 @@
 }
 .smallScreen {
     position: absolute;
+    left: 2vw;
+    right: 2vw;
+    top: 4vh;
 }
 
 @keyframes bg-anim {
@@ -40,36 +44,6 @@
     90%{background: linear-gradient(rgba(20, 220, 23, 0.58), rgba(0, 34, 255, 0.62));}
     95%{background: linear-gradient(rgba(47, 220, 20, 0.56), rgba(64, 0, 255, 0.62));}
     100%{background: linear-gradient(rgba(110, 220, 20, 0.54), rgba(72, 0, 255, 0.62));}
-
-}
-
-.cartContainer .inCart {
-    font-size: xxx-large;
-    font-family: Tahoma, monospace;
-    color: whitesmoke;
-    font-variant: all-small-caps;
-}
-
-.cartContainer .productsHolder {
-    display: flex;
-    height: fit-content;
-}
-
-.cartContainer .infoHolder {
-    display: flex;
-    justify-content: left;
-    height: fit-content;
-
-}
-.cartContainer .infoHolder label {
-    font-size: xx-large;
-    font-family: Tahoma, monospace;
-    color: whitesmoke;
-    font-variant: all-small-caps;
-}
-
-.cartContainer {
-    transition: all 3s;
 }
 
 .drop {
@@ -77,10 +51,31 @@
 }
 
 .orderCompleteLabel {
+    font-family: Georgia, serif;
+    color: whitesmoke;
     font-size: xxx-large;
     font-variant: all-small-caps;
-    font-family: monospace;
     font-weight: bold;
     transition: all 5s;
-    color: #61dafb;
+}
+
+
+.animate {
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.heading {
+    font-size: x-large;
+    font-family: Georgia, serif;
+    color: whitesmoke;
+    font-variant: all-small-caps;
 }

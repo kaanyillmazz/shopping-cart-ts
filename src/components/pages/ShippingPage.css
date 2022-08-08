@@ -1,15 +1,3 @@
-.shippingFormContainer .myLabel {
-    margin-bottom: 20px;
-    margin-top: 0px;
-    padding-top: 0px;
-    position: relative;
-    bottom: 10px;
-}
-
-.shippingFormContainer {
+.shippingContainer {
     transition: all 3s;
-}
-
-.drop {
-    transform: translateX(-100vw);
 }

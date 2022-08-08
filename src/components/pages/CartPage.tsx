@@ -5,6 +5,7 @@ import {setPaymentDisplay} from "../../features/Products/checkoutSlice";
 import List from "@mui/material/List";
 import {Product} from "../../features/Products/productsSlice";
 import {getTotal} from "../../features/Products/cartSlice";
+import "./CartPage.css";
 
 
 function CartPage(props: any) {
@@ -28,7 +29,7 @@ function CartPage(props: any) {
 
     return (<Grid container className="cartContainer" id="cartContainer">
                 <Grid container item xs={12}>
-                    <label className="inCart">Items in cart</label>
+                    <label>Items in cart</label>
                 </Grid>
                 <Grid container item xs={12} className={"productsHolder"}>
                     <List dense={true}>

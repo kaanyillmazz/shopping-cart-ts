@@ -1,8 +1,8 @@
-.Mainpp {
+.productPageContainer {
     max-height: 100vh;
 
 }
-.Apppp .linkpp {
+.productPageMain Link {
     text-align: center;
     justify-content: center;
     color: whitesmoke;
@@ -18,7 +18,7 @@
 
 }
 
-.Apppp {
+.productPageMain {
     margin: 0;
     padding: 0;
     position: relative;
@@ -28,12 +28,12 @@
     overflow: scroll;
 }
 
-.Apppp img {
+.productPageMain img {
     width: 40vh;
     height: 45vh;
 }
 
-.Apppp label {
+.productPageMain label {
     text-align: center;
     padding-inline: 5vw;
     font-family: Tahoma, Algerian,monospace;
@@ -48,7 +48,7 @@
     z-index: 3;
 }
 
-.Apppp .wave {
+.productPageMain .wave {
     z-index: 1;
     margin: 0;
     padding: 0;
@@ -61,20 +61,20 @@
     background-size: 1000px 100px;
 }
 
-.Apppp .wave.wave1 {
+.productPageMain .wave.wave1 {
     animation: myAnimation 15s linear infinite;
 }
 
-.Apppp .wave.wave2 {
+.productPageMain .wave.wave2 {
     animation: myAnimation 30s linear infinite;
     animation-delay: -4s;
 }
-.Apppp .wave.wave3 {
+.productPageMain .wave.wave3 {
     animation: myAnimation 10s linear infinite;
     animation-delay: -5s;
 
 }
-.Apppp .wave.wave4 {
+.productPageMain .wave.wave4 {
     animation: myAnimation 5s linear infinite;
     animation-delay: -7s;
 
