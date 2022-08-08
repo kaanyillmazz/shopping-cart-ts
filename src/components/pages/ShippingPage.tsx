@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 
 
 import "./ShippingPage.css";
-import {Button, Grid, TextField} from "@mui/material";
+import {Button, Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {setCompleteDisplay} from "../../features/Products/checkoutSlice";
-
-
 
 
 function ShippingPage(props: any) {
@@ -21,7 +19,9 @@ function ShippingPage(props: any) {
     const [addressName, setAddressName] = useState("");
 
     const handleSubmit = (event: any) => {
-
+        event.preventDefault();
+        document.getElementById("shippingFormContainer")!.classList.add("drop");
+        dispatch(setCompleteDisplay("flex"))
     }
     const handleChange = (event: any) => {
         switch (event.target.id) {
@@ -42,53 +42,40 @@ function ShippingPage(props: any) {
 
     }
 
-    return (<Grid container className="shippingFormContainer animate" id="shippingFormContainer" display={display}>
-        <Grid>
-            <form onSubmit={handleSubmit}>
-                <Grid item xs={12}>
-                    <label>Country</label>
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField className="myLabel" id="countryName" label="Country" variant="standard"
-                               value={countryName}
-                               onChange={handleChange}/>
-                </Grid>
-                <Grid item xs={12}>
-                    <label>City</label>
-                </Grid>
+    return (
+        <Grid container className="shippingFormContainer animate" id="shippingFormContainer" display={display}>
+            <Grid>
+                <form onSubmit={handleSubmit}>
 
-                <Grid item xs={12}>
-                    <TextField className="myLabel" id="cityName" label="City" variant="standard"
-                               value={cityName}
-                               onChange={handleChange}/>
-                </Grid>
+                    <Grid item xs={12}>
+                        <TextField required={true} className="myLabel" id="countryName" label="Country" variant="standard"
+                                   value={countryName}
+                                   onChange={handleChange}/>
+                    </Grid>
 
-                <Grid item xs={12}>
-                    <label>District</label>
-                </Grid>
+                    <Grid item xs={12}>
+                        <TextField required={true} className="myLabel" id="cityName" label="City" variant="standard"
+                                   value={cityName}
+                                   onChange={handleChange}/>
+                    </Grid>
 
-                <Grid item xs={12}>
-                    <TextField className="myLabel" id="districtName" label="District" variant="standard" value={districtName}
-                               onChange={handleChange}/>
-                </Grid>
 
-                <Grid item xs={12}>
-                    <label>Address</label>
-                </Grid>
+                    <Grid item xs={12}>
+                        <TextField required={true} className="myLabel" id="districtName" label="District" variant="standard"
+                                   value={districtName}
+                                   onChange={handleChange}/>
+                    </Grid>
 
-                <Grid item xs={12}>
-                    <TextField className="myLabel" id="addressName" label="Address" variant="standard" value={addressName}
-                               onChange={handleChange}/>
-                </Grid>
-            </form>
+                    <Grid item xs={12}>
+                        <TextField required={true} className="myLabel" id="addressName" label="Address" variant="standard"
+                                   value={addressName}
+                                   onChange={handleChange}/>
+                    </Grid>
+                    <Input type="submit" value="Complete Order"></Input>
+                </form>
 
-        </Grid>
-
-        <Grid xs={12}>
-            <Button onClick={()=>{document.getElementById("shippingFormContainer")!.classList.add("drop");
-            dispatch(setCompleteDisplay("flex"))}} variant={"contained"}>Proceed</Button>
-        </Grid>
-
-    </Grid>) ;
+            </Grid>
+        </Grid>);
 }
+
 export default ShippingPage;
