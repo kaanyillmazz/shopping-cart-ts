@@ -17,25 +17,31 @@ function PaymentPage() {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        if(cardCCV.length < 3) {
+        if (cardCCV.length < 3) {
             alert("Card CCV should be 3 digits!");
             return;
         }
-        if(cardNumber.length < 19) {
+        if (cardNumber.length < 19) {
             alert("Please fill Card Number!");
             return;
         }
-        if(nameField.length < 5) {
+        if (nameField.length < 5) {
             alert("Please write your name and surname!");
             return;
         }
         let maxDate = new Date("2040-12");
+        let minDate = new Date("2022-00");
         let userDate = new Date(cardExp.toString());
 
         if (userDate > maxDate) {
             alert("Please enter a valid date before 2040!");
             return;
         }
+        if (userDate < minDate) {
+            alert("Please enter a valid date after 2022!");
+            return;
+        }
+
 
         dispatch(setShippingDisplay("flex"));
         document.getElementById("paymentContainer")!.classList.add("drop");
@@ -70,7 +76,7 @@ function PaymentPage() {
                 if (event.keyCode === 8) {
                     setCardCCV(cardCCV.slice(0, -1));
                     break;
-                }else if (length === 3) {
+                } else if (length === 3) {
                     break;
                 } else if (event.keyCode < 48 || event.keyCode > 57) {
                     break;
