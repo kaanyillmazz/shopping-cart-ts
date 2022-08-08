@@ -17,6 +17,26 @@ function PaymentPage() {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
+        if(cardCCV.length < 3) {
+            alert("Card CCV should be 3 digits!");
+            return;
+        }
+        if(cardNumber.length < 19) {
+            alert("Please fill Card Number!");
+            return;
+        }
+        if(nameField.length < 5) {
+            alert("Please write your name and surname!");
+            return;
+        }
+        let maxDate = new Date("2040-12");
+        let userDate = new Date(cardExp.toString());
+
+        if (userDate > maxDate) {
+            alert("Please enter a valid date before 2040!");
+            return;
+        }
+
         dispatch(setShippingDisplay("flex"));
         document.getElementById("paymentContainer")!.classList.add("drop");
     }
@@ -44,12 +64,19 @@ function PaymentPage() {
                 break;
             case "cardExp":
                 setCardExp(value)
+                console.log(value);
                 break;
             case "cardCCV":
-                if (length === 4) {
+                if (event.keyCode === 8) {
+                    setCardCCV(cardCCV.slice(0, -1));
                     break;
+                }else if (length === 3) {
+                    break;
+                } else if (event.keyCode < 48 || event.keyCode > 57) {
+                    break;
+                } else {
+                    setCardCCV(cardCCV + event.key)
                 }
-                setCardCCV(value)
                 break;
             default:
         }
@@ -70,11 +97,12 @@ function PaymentPage() {
                                    onChange={handleChange}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField fullWidth onKeyDown={handleChange} type="tel" required={true}
+                        <TextField fullWidth type="tel" required={true}
                                    id="cardNumber"
                                    label="Card Number"
                                    margin="dense" variant="filled" size="small"
                                    value={cardNumber}
+                                   onKeyDown={handleChange}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -86,7 +114,7 @@ function PaymentPage() {
                     <Grid item xs={12}>
                         <TextField fullWidth required={true} type="tel" id="cardCCV" label="CCV"
                                    margin="dense" variant="filled" size="small" value={cardCCV}
-                                   onChange={handleChange}/>
+                                   onKeyDown={handleChange}/>
                     </Grid>
                 </Grid>
 

@@ -7,10 +7,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCompleteDisplay} from "../../features/Products/checkoutSlice";
 
 
-function ShippingPage(props: any) {
-
+function ShippingPage() {
     const display = useSelector((state: any) => state.checkout.shippingDisplay);
-
     const dispatch = useDispatch();
 
     const [countryName, setCountryName] = useState("");
@@ -20,6 +18,23 @@ function ShippingPage(props: any) {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
+        if(countryName.length < 2) {
+            alert("Please Enter a valid Country Name")
+            return;
+        }
+        if(cityName.length < 2) {
+            alert("Please Enter a valid City Name")
+            return;
+        }
+        if(districtName.length < 2) {
+            alert("Please Enter a valid District Name")
+            return;
+        }
+        if(addressName.length < 2) {
+            alert("Please Enter a valid Address")
+            return;
+        }
+
         document.getElementById("shippingContainer")!.classList.add("drop");
         dispatch(setCompleteDisplay("flex"))
     }
