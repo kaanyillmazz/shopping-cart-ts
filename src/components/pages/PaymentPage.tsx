@@ -30,7 +30,7 @@ function PaymentPage() {
             return;
         }
         let maxDate = new Date("2040-12");
-        let minDate = new Date("2022-00");
+        let minDate = new Date("2022-08");
         let userDate = new Date(cardExp.toString());
 
         if (userDate > maxDate) {
