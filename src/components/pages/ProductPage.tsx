@@ -22,7 +22,7 @@ function ProductPage() {
     }, [id]);
 
 
-    return (<Grid container display="flex" justifyContent="center" className="ProductPageMain">
+    return (<Grid container display="flex" justifyContent="center" className="productPageMain">
                 <Link className="foreground" to="/">Return Home</Link>
 
 
