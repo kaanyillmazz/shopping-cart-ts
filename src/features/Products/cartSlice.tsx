@@ -21,18 +21,48 @@ export function myIndexOf(myCart: Product[], item: Product) {
     return -1;
 }
 
+export function createCookies(myCart: Product[], index: number) {
+
+    let idString = "";
+    let countString = "";
+    for (let i = 0; i < myCart.length; i++) {
+        idString = idString + " " + myCart[i].id.toString();
+        countString = countString + " " + myCart[i].count.toString();
+    }
+    let cookieString = "IDs = " + idString;
+    let cookieString1 = "counts = " + countString;
+    console.log(cookieString);
+    document.cookie = cookieString;
+    document.cookie = cookieString1;
+}
+
+export function getProductFromID(ProductsArray: Product[], id: number) {
+    if(ProductsArray.length > 2) {
+        for (let i = 0; i < ProductsArray.length; i++) {
+            if (ProductsArray[i].id === id) {
+                console.log("yes")
+                return ProductsArray[i];
+            }
+        }
+    }
+
+    return;
+}
+
+
+
 //get total expenses
 export function getTotal(myCart: Product[]) {
     let total = 0;
     for (let i = 0; i < myCart.length; i++) {
-      total = total + myCart[i].count * myCart[i].price;
+        total = total + myCart[i].count * myCart[i].price;
     }
     return total.toFixed(2);
 }
 
 //get an items count
 export function getCount(myCart: Product[], item: Product) {
-    return myCart[myIndexOf(myCart,item)].count;
+    return myCart[myIndexOf(myCart, item)].count;
 }
 
 //get index of an item searching by title
@@ -63,6 +93,7 @@ export const cartSlice = createSlice(
                 if (myIndexOf(state.myCart, productToSearch) === -1) {
                     let productToSend = new Product(id, title, price, description, category, image, count, rating);
                     state.myCart.push(productToSend);
+
                 } else {
                     //if it's in the cart increase the count and overwrite it
                     let myIndex = myIndexOf(state.myCart, item.payload)

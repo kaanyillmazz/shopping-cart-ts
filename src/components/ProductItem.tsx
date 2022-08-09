@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Grid, Paper} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {addItem, getCount, myIndexOf} from "../features/Products/cartSlice";
+import {addItem, createCookies, getCount, myIndexOf} from "../features/Products/cartSlice";
 import ProductPage from "./pages/ProductPage";
 import {useNavigate} from "react-router-dom";
 import "./ProductItem.css";
@@ -29,9 +29,9 @@ function ProductItem(props: any) {
         let myButton0;
         //check if product is in cart, change the button accordingly
         if (myIndexOf(myCart, product) != -1) {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "rgba(236,106,0,0.4)"}}>In cart {getCount(myCart,product)}</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index); createCookies(myCart, index)} } variant="contained" sx={{backgroundColor: "rgba(236,106,0,0.4)"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index)}} variant="contained" sx={{backgroundColor: "rgba(220,72,46,0.72)"}}>Add To Cart</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index); createCookies(myCart, index)}} variant="contained" sx={{backgroundColor: "rgba(220,72,46,0.72)"}}>Add To Cart</Button>);
         }
         return myButton0;
     }
