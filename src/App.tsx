@@ -16,6 +16,10 @@ import {addItem, getProductFromID} from "./features/Products/cartSlice";
 
 const baseURL = "https://fakestoreapi.com/products";
 
+
+//workaround for getting cookies everytime main page renders
+let firstRender = true;
+
 function App() {
     const dispatch = useDispatch();
 
@@ -56,25 +60,27 @@ function App() {
 
 
     function getCookies(products: Product[]) {
-        if (document.cookie) {
+        if (document.cookie && firstRender) {
             let cookieArray = document.cookie.split(';');
-            console.log(cookieArray);
+            console.log("getting cookies"+cookieArray);
             let IDs = cookieArray[0].split("=")[1].split(" ");
             let counts = cookieArray[1].split("=")[1].split(" ");
             let product;
             for(let i = 0; i < IDs.length; i++) {
                 product = getProductFromID(products, parseInt(IDs[i]));
                 for(let a = 0; a < parseInt(counts[i]); a++){
-                    console.log(product);
+
                         dispatch(addItem(product));
 
                 }
             }
         }
+        firstRender = false;
     }
 
     (async function(){
         let books = await getAllBooks();
+
         countSetter(books?.data);
         getCookies(books?.data);
     })();

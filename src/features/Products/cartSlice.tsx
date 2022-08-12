@@ -21,7 +21,7 @@ export function myIndexOf(myCart: Product[], item: Product) {
     return -1;
 }
 
-export function createCookies(myCart: Product[], index: number) {
+export function createCookies(myCart: Product[]) {
 
     let idString = "";
     let countString = "";
@@ -31,9 +31,9 @@ export function createCookies(myCart: Product[], index: number) {
     }
     let cookieString = "IDs = " + idString;
     let cookieString1 = "counts = " + countString;
-    console.log(cookieString);
     document.cookie = cookieString;
     document.cookie = cookieString1;
+    console.log("set cookies"+document.cookie);
 }
 
 export function getProductFromID(ProductsArray: Product[], id: number) {

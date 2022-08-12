@@ -5,6 +5,7 @@ import {addItem, createCookies, getCount, myIndexOf} from "../features/Products/
 import ProductPage from "./pages/ProductPage";
 import {useNavigate} from "react-router-dom";
 import "./ProductItem.css";
+import {Product} from "../features/Products/productsSlice";
 
 function ProductItem(props: any) {
     let navigate = useNavigate();
@@ -16,11 +17,20 @@ function ProductItem(props: any) {
     // add an item to cart
     const addToCart = (index: number) => {
         dispatch(addItem(products[index]));
+
     }
 
     const navigator = (productId: number) => {
         navigate(`/item/${productId}`, {replace: true})
     }
+
+    React.useEffect(() => {
+        //workaround for creating cookies with empty array in the first render.
+        if(myCart.length > 0) {
+            createCookies(myCart);
+        }
+    }, [myCart]);
+
 
     //give this button to map function, so it maps another one for every single product
     const myButton = (product0: any, index0: any) => {
@@ -29,9 +39,9 @@ function ProductItem(props: any) {
         let myButton0;
         //check if product is in cart, change the button accordingly
         if (myIndexOf(myCart, product) != -1) {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index); createCookies(myCart, index)} } variant="contained" sx={{backgroundColor: "rgba(236,106,0,0.4)"}}>In cart {getCount(myCart,product)}</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index); } } variant="contained" sx={{backgroundColor: "rgba(236,106,0,0.4)"}}>In cart {getCount(myCart,product)}</Button>);
         } else {
-            myButton0 = (<Button className="item3" onClick={() => {addToCart(index); createCookies(myCart, index)}} variant="contained" sx={{backgroundColor: "rgba(220,72,46,0.72)"}}>Add To Cart</Button>);
+            myButton0 = (<Button className="item3" onClick={() => {addToCart(index); }} variant="contained" sx={{backgroundColor: "rgba(220,72,46,0.72)"}}>Add To Cart</Button>);
         }
         return myButton0;
     }
