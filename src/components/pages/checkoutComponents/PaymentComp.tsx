@@ -26,16 +26,23 @@ function PaymentComp() {
             alert("Please write your name and surname!");
             return;
         }
-        let maxDate = new Date("2040-12");
-        let minDate = new Date("2022-08");
+
+        let currentYear = new Date().getFullYear();
+        let maxYearString = (currentYear+20).toString();
+        let minYearString = currentYear.toString();
+        let minDate = new Date(minYearString);
+        let maxDate = new Date(maxYearString);
+        console.log(minDate);
+        console.log(maxDate);
+
         let userDate = new Date(cardExp.toString());
 
         if (userDate > maxDate) {
-            alert("Please enter a valid date before 2040!");
+            alert("Please enter a valid date before "+maxYearString);
             return;
         }
         if (userDate < minDate) {
-            alert("Please enter a valid date after 2022!");
+            alert("Please enter a valid date after "+minYearString);
             return;
         }
         dispatch(setShippingDisplay("flex"));
@@ -65,7 +72,6 @@ function PaymentComp() {
                 break;
             case "cardExp":
                 setCardExp(value)
-                console.log(value);
                 break;
             case "cardCCV":
                 if (event.keyCode === 8) {
