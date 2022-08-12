@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import "./ShippingComp.css";
 import {Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {setCompleteDisplay} from "../../../features/Products/checkoutSlice";
-import {emptyItems} from "../../../features/Products/cartSlice";
+import {setCompleteDisplay, setPaymentDisplay, setShippingDisplay} from "../../../features/Products/checkoutSlice";
+import {createCookies, emptyItems} from "../../../features/Products/cartSlice";
 import {useNavigate} from "react-router-dom";
 
 function ShippingComp() {
@@ -14,6 +14,18 @@ function ShippingComp() {
     const [districtName, setDistrictName] = useState("");
     const [addressName, setAddressName] = useState("");
     let navigate = useNavigate();
+
+    const resetEverything = () => {
+        dispatch(emptyItems());
+        dispatch(setPaymentDisplay("none"));
+        dispatch(setShippingDisplay("none"));
+        document.getElementById("cartContainer")!.classList.remove("drop");
+        document.getElementById("paymentContainer")!.classList.remove("drop");
+        document.getElementById("shippingContainer")!.classList.remove("drop");
+        dispatch(setCompleteDisplay("none"));
+        createCookies([]);
+        navigate(`/`, {replace: true});
+    }
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -35,8 +47,7 @@ function ShippingComp() {
         }
         document.getElementById("shippingContainer")!.classList.add("drop");
         dispatch(setCompleteDisplay("flex"));
-        dispatch(emptyItems());
-        setTimeout(()=>{ navigate(`/`, {replace: true})}, 3000);
+        setTimeout(()=>{resetEverything()}, 2000);
     }
 
     const handleChange = (event: any) => {
