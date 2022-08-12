@@ -5,7 +5,7 @@ import {filterProducts, Product, sortProducts} from "../features/Products/produc
 import {setCategory} from "../features/Products/filterSlice";
 
 //this component is to change category
-function CategorySelection(props: any) {
+function CategorySelection() {
     const dispatch = useDispatch();
     const priceRange = useSelector((state: any) => state.filter.priceRange);
     const category = useSelector((state: any) => state.filter.category);

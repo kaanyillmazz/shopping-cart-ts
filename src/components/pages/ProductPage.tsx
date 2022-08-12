@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Grid} from "@mui/material";
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
-
 import "./ProductPage.css";
 
 function ProductPage() {
@@ -10,7 +9,7 @@ function ProductPage() {
     let {id} = useParams();
 
     React.useEffect(() => {
-        let myInd: number = 0;
+        let myInd = 0;
         if (id === undefined) {
             myInd = 0
         } else {

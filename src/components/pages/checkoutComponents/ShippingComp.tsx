@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
-
-
-import "./ShippingPage.css";
+import "./ShippingComp.css";
 import {Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {setCompleteDisplay} from "../../features/Products/checkoutSlice";
+import {setCompleteDisplay} from "../../../features/Products/checkoutSlice";
 
-
-function ShippingPage() {
+function ShippingComp() {
     const display = useSelector((state: any) => state.checkout.shippingDisplay);
     const dispatch = useDispatch();
 
@@ -18,26 +15,26 @@ function ShippingPage() {
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        if(countryName.length < 2) {
+        if (countryName.length < 2) {
             alert("Please Enter a valid Country Name")
             return;
         }
-        if(cityName.length < 2) {
+        if (cityName.length < 2) {
             alert("Please Enter a valid City Name")
             return;
         }
-        if(districtName.length < 2) {
+        if (districtName.length < 2) {
             alert("Please Enter a valid District Name")
             return;
         }
-        if(addressName.length < 2) {
+        if (addressName.length < 2) {
             alert("Please Enter a valid Address")
             return;
         }
-
         document.getElementById("shippingContainer")!.classList.add("drop");
         dispatch(setCompleteDisplay("flex"))
     }
+
     const handleChange = (event: any) => {
         switch (event.target.id) {
             case "countryName":
@@ -54,7 +51,6 @@ function ShippingPage() {
                 break;
             default:
         }
-
     }
 
     return (
@@ -70,7 +66,7 @@ function ShippingPage() {
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField  fullWidth  required={true} id="cityName" label="City" margin="dense"
+                        <TextField fullWidth required={true} id="cityName" label="City" margin="dense"
                                    variant="filled" size="small"
                                    value={cityName}
                                    onChange={handleChange}/>
@@ -78,14 +74,14 @@ function ShippingPage() {
 
 
                     <Grid item xs={12}>
-                        <TextField  fullWidth  required={true} id="districtName" label="District" margin="dense"
+                        <TextField fullWidth required={true} id="districtName" label="District" margin="dense"
                                    variant="filled" size="small"
                                    value={districtName}
                                    onChange={handleChange}/>
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField  fullWidth  required={true} id="addressName" label="Address" margin="dense"
+                        <TextField fullWidth required={true} id="addressName" label="Address" margin="dense"
                                    variant="filled" size="small"
                                    value={addressName}
                                    onChange={handleChange}/>
@@ -93,9 +89,7 @@ function ShippingPage() {
                 </Grid>
                 <Input type="submit" value="Complete Order"></Input>
             </form>
-
-
         </Grid>);
 }
 
-export default ShippingPage;
+export default ShippingComp;

@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {dialogSlice} from "./dialogSlice";
 
 const initialState = {
     paymentDisplay: "none",

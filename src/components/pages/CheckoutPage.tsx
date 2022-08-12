@@ -2,11 +2,11 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import {Grid} from "@mui/material";
 import "./CheckoutPage.css";
-import PaymentPage from "./PaymentPage";
-import ShippingPage from "./ShippingPage";
+import PaymentComp from "./checkoutComponents/PaymentComp";
+import ShippingComp from "./checkoutComponents/ShippingComp";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {useTheme} from "@mui/material/styles";
-import CartPage from "./CartPage";
+import CartComp from "./checkoutComponents/CartComp";
 
 function CheckoutPage() {
     const complete = useSelector((state: any) => state.checkout.completeDisplay);
@@ -18,21 +18,21 @@ function CheckoutPage() {
     let CartPageGrid;
 
     PaymentPageGrid = matches ? (<Grid className="paymentContainerGrid" xs={12} md={4}>
-        <PaymentPage/>
+        <PaymentComp/>
     </Grid>) : (<Grid className="paymentContainerGrid smallScreen" xs={12} md={4}>
-        <PaymentPage/>
+        <PaymentComp/>
     </Grid>);
 
     ShippingPageGrid = matches ? (<Grid className="shippingContainerGrid" xs={12} md={4}>
-        <ShippingPage/>
+        <ShippingComp/>
     </Grid>) : (<Grid className="shippingContainerGrid smallScreen" xs={12} md={4}>
-        <ShippingPage/>
+        <ShippingComp/>
     </Grid>);
 
     CartPageGrid = matches ? (<Grid className="cartContainerGrid" xs={12} md={4}>
-        <CartPage/>
+        <CartComp/>
     </Grid>) : (<Grid className="cartContainerGrid smallScreen" xs={12} md={4}>
-        <CartPage/>
+        <CartComp/>
     </Grid>);
 
 

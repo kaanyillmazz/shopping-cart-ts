@@ -1,19 +1,16 @@
 import React, {useState} from 'react';
-import "./PaymentPage.css";
+import "./PaymentComp.css";
 import {Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {setShippingDisplay} from "../../features/Products/checkoutSlice";
+import {setShippingDisplay} from "../../../features/Products/checkoutSlice";
 
-function PaymentPage() {
-
+function PaymentComp() {
     const dispatch = useDispatch();
     const display = useSelector((state: any) => state.checkout.paymentDisplay);
-
     const [nameField, setNameField] = useState("");
     const [cardNumber, setCardNumber] = useState("");
     const [cardExp, setCardExp] = useState("");
     const [cardCCV, setCardCCV] = useState("");
-
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -41,8 +38,6 @@ function PaymentPage() {
             alert("Please enter a valid date after 2022!");
             return;
         }
-
-
         dispatch(setShippingDisplay("flex"));
         document.getElementById("paymentContainer")!.classList.add("drop");
     }
@@ -89,7 +84,6 @@ function PaymentPage() {
 
     }
 
-
     return (
         <Grid container className="paymentContainer animate" id="paymentContainer" display={display}>
             <label className="heading">Payment Information</label>
@@ -123,10 +117,9 @@ function PaymentPage() {
                                    onKeyDown={handleChange}/>
                     </Grid>
                 </Grid>
-
                 <Input type="submit" value="Proceed"></Input>
             </form>
         </Grid>);
 }
 
-export default PaymentPage;
+export default PaymentComp;

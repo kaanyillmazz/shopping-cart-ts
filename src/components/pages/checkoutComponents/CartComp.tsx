@@ -1,19 +1,18 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Grid, Input, ListItem, ListItemText} from "@mui/material";
-import {setPaymentDisplay} from "../../features/Products/checkoutSlice";
+import {setPaymentDisplay} from "../../../features/Products/checkoutSlice";
 import List from "@mui/material/List";
-import {Product} from "../../features/Products/productsSlice";
-import {getTotal} from "../../features/Products/cartSlice";
-import "./CartPage.css";
+import {Product} from "../../../features/Products/productsSlice";
+import {getTotal} from "../../../features/Products/cartSlice";
+import "./CartComp.css";
 
 
-function CartPage(props: any) {
+function CartComp() {
     const dispatch = useDispatch();
 
     const titleCreator = (price: number, count: number) => {
-        let str = "$" + price + " Count: " + count;
-        return str;
+        return "$" + price + " Count: " + count;
     }
 
     const myCart = useSelector((state: any) => state.cart.myCart);
@@ -25,7 +24,7 @@ function CartPage(props: any) {
             document.getElementById("cartContainer")!.classList.add("drop");
         }}
         ></Input>
-    };
+    }
 
     return (<Grid container className="cartContainer" id="cartContainer">
                 <Grid container item xs={12}>
@@ -66,4 +65,4 @@ function CartPage(props: any) {
 
 }
 
-export default CartPage;
+export default CartComp;

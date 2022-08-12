@@ -6,14 +6,14 @@ import {filterProducts, Product, sortProducts} from "../features/Products/produc
 import {Grid} from "@mui/material";
 
 
-function PriceRangeSelector(props: any) {
+function PriceRangeSelector() {
     const dispatch = useDispatch();
     const priceRange = useSelector((state: any) => state.filter.priceRange);
     const category = useSelector((state: any) => state.filter.category);
     const sorting = useSelector((state: any) => state.sorting.sorting);
 
 
-    function valuetext(value: any) {
+    function valuetext() {
         return `${priceRange}`;
     }
 
@@ -23,7 +23,7 @@ function PriceRangeSelector(props: any) {
     };
 
     //when a button is released, dispatch filter function
-    const handleChangeCommitted = (event: any, newValue: any) => {
+    const handleChangeCommitted = () => {
         if (category === "all") {
             //if category is all, only send price range
             dispatch(filterProducts(function (item: Product) {
@@ -34,10 +34,8 @@ function PriceRangeSelector(props: any) {
             dispatch(filterProducts(function (item: Product) {
                 return (item.price > priceRange[0] && item.price < priceRange[1] && item.category === category);
             }))
-
         }
         handleSorting();
-
     };
 
     //sorting needs to be handled after filtering is done

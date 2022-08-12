@@ -5,10 +5,10 @@ import {useDispatch} from "react-redux";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 //this component displays a filter floating button
-function OptionsFab(props: any) {
+function OptionsFab() {
     const dispatch = useDispatch();
 
-    //set the options drawer open
+    //set the option drawer open
     const handleDrawerOpen = () => {
         dispatch(setOpen(true));
     };

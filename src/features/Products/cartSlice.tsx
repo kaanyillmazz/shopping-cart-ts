@@ -22,7 +22,6 @@ export function myIndexOf(myCart: Product[], item: Product) {
 }
 
 export function createCookies(myCart: Product[]) {
-
     let idString = "";
     let countString = "";
     for (let i = 0; i < myCart.length; i++) {
@@ -33,11 +32,11 @@ export function createCookies(myCart: Product[]) {
     let cookieString1 = "counts = " + countString;
     document.cookie = cookieString;
     document.cookie = cookieString1;
-    console.log("set cookies"+document.cookie);
+    console.log("set cookies" + document.cookie);
 }
 
 export function getProductFromID(ProductsArray: Product[], id: number) {
-    if(ProductsArray.length > 2) {
+    if (ProductsArray.length > 2) {
         for (let i = 0; i < ProductsArray.length; i++) {
             if (ProductsArray[i].id === id) {
                 console.log("yes")
@@ -45,11 +44,8 @@ export function getProductFromID(ProductsArray: Product[], id: number) {
             }
         }
     }
-
     return;
 }
-
-
 
 //get total expenses
 export function getTotal(myCart: Product[]) {
@@ -80,62 +76,35 @@ export const cartSlice = createSlice(
         name: 'cart', initialState, reducers: {
             addItem: (state, item) => {
                 //I am creating a new object because it won't let me change an attribute value directly
-                let id = item.payload.id;
-                let title = item.payload.title;
-                let price = item.payload.price;
-                let description = item.payload.description;
-                let category = item.payload.category;
-                let image = item.payload.image;
-                let count = (item.payload.count);
-                let rating = item.payload.rating;
-                let productToSearch = new Product(id, title, price, description, category, image, count, rating);
+                let no = item.payload;  //nEW-oBJECT
+                let productToSearch = new Product(no.id, no.title, no.price, no.description, no.category, no.image, no.count, no.rating);
                 //if it's not in the cart just send it to cart
                 if (myIndexOf(state.myCart, productToSearch) === -1) {
-                    let productToSend = new Product(id, title, price, description, category, image, count, rating);
+                    let productToSend = new Product(no.id, no.title, no.price, no.description, no.category, no.image, no.count, no.rating);
                     state.myCart.push(productToSend);
-
                 } else {
                     //if it's in the cart increase the count and overwrite it
                     let myIndex = myIndexOf(state.myCart, item.payload)
-                    let countToIncrease = state.myCart[myIndex].count;
-                    countToIncrease = countToIncrease + 1;
-                    let productToSend = new Product(id, title, price, description, category, image, countToIncrease, rating)
-                    state.myCart[myIndex] = productToSend;
+                    let newCount = state.myCart[myIndex].count + 1;
+                    state.myCart[myIndex] = new Product(no.id, no.title, no.price, no.description, no.category, no.image, newCount, no.rating);
                 }
             },
             deleteItem: (state, index) => {
                 state.myCart.splice(index.payload, 1);
             }, emptyItems: (state) => {
                 state.myCart = [];
-            }, increaseCount: (state, titleTemp) => {
+            }, increaseCount: (state, itemTitle) => {
                 //increase count and overwrite the item
-                let myTitle = titleTemp.payload;
-                let myIndex = myIndexOfTitle(state.myCart, myTitle.toString());
-                let myItem = state.myCart[myIndex];
-                let id = myItem.id;
-                let title = myItem.title;
-                let price = myItem.price;
-                let description = myItem.description;
-                let category = myItem.category;
-                let image = myItem.image;
-                let count = (myItem.count) + 1;
-                let rating = myItem.rating;
-                let productToSend = new Product(id, title, price, description, category, image, count, rating);
-                state.myCart[myIndex] = productToSend;
-            }, decreaseCount: (state, titleTemp) => {
+                let myIndex = myIndexOfTitle(state.myCart, itemTitle.payload.toString());
+                let no = state.myCart[myIndex];
+                let newCount = (no.count) + 1;
+                state.myCart[myIndex] = new Product(no.id, no.title, no.price, no.description, no.category, no.image, newCount, no.rating);
+            }, decreaseCount: (state, itemTitle) => {
                 //decrease the count and overwrite the item
-                let myTitle = titleTemp.payload;
-                let myIndex = myIndexOfTitle(state.myCart, myTitle);
-                let myItem = state.myCart[myIndex];
-                let id = myItem.id;
-                let title = myItem.title;
-                let price = myItem.price;
-                let description = myItem.description;
-                let category = myItem.category;
-                let image = myItem.image;
-                let count = (myItem.count) - 1;
-                let rating = myItem.rating;
-                let productToSend = new Product(id, title, price, description, category, image, count, rating);
+                let myIndex = myIndexOfTitle(state.myCart, itemTitle.payload.toString());
+                let no = state.myCart[myIndex];
+                let newCount = (no.count) - 1;
+                let productToSend = new Product(no.id, no.title, no.price, no.description, no.category, no.image, newCount, no.rating);
                 if (state.myCart[myIndex].count === 1) {
                     state.myCart.splice(myIndex, 1);
                 } else {

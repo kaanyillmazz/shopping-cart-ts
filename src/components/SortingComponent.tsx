@@ -4,10 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {setSorting} from '../features/Products/sortingSlice';
 import {sortProducts} from "../features/Products/productsSlice";
 
-function SortingComponent(props: any) {
+function SortingComponent() {
     const dispatch = useDispatch();
     const sorting = useSelector((state: any) => state.sorting.sorting);
-
 
     //sorting is done with the local value before sending out sorting state
     //this is to ensure that state has time to change, and we are doing the correct sort
@@ -28,7 +27,6 @@ function SortingComponent(props: any) {
         }
         dispatch(setSorting(value0));  //set the state to refresh frontend
     };
-
 
     return (
         <Grid mt={1} sx={{paddingLeft: 5, paddingRight: 5}}>

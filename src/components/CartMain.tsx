@@ -1,25 +1,23 @@
 import React from 'react'
 import {Button, Fab, Grid, ListItem, ListItemText} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {decreaseCount, emptyItems, getCount, getTotal, increaseCount} from "../features/Products/cartSlice";
+import {decreaseCount, emptyItems, getTotal, increaseCount} from "../features/Products/cartSlice";
 import {Product} from "../features/Products/productsSlice";
 import List from "@mui/material/List";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import Divider from "@mui/material/Divider";
-import {setOpen} from "../features/Products/dialogSlice";
 import {useNavigate} from "react-router-dom";
 
 
 //this component displays items in cart
-function CartMain(props: any) {
+function CartMain() {
     let navigate = useNavigate();
 
     const myCart = useSelector((state: any) => state.cart.myCart);
     const dispatch = useDispatch();
     const titleCreator = (price: number, count: number) => {
-        let str = "$" + price + " Count: " + count;
-        return str;
+        return "$" + price + " Count: " + count;
     }
 
 
@@ -34,12 +32,10 @@ function CartMain(props: any) {
 
     //increase selected item count
     const increaseHandler = (title: any) => {
-        let myTitle = title;
-        dispatch(increaseCount(myTitle));
+        dispatch(increaseCount(title));
     }
     //decrease selected item count
     const decreaseHandler = (title: any) => {
-        let myTitle = title;
         dispatch(decreaseCount(title));
     }
 

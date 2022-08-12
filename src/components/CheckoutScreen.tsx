@@ -19,18 +19,17 @@ import {emptyItems, getTotal} from "../features/Products/cartSlice";
 
 //process the title and item count to display it
 const titleCreator = (price: number, count: number) => {
-    let str = "$" + price + " Count: " + count;
-    return str;
+    return "$" + price + " Count: " + count;
 }
 
-function CheckoutScreen(props: any) {
+function CheckoutScreen() {
     //when you click close it closes
-    function handleClose(event: any) {
+    function handleClose() {
         dispatch(setOpen(false));
     }
 
     //when you click checkout it first buys items then closes
-    function handleCheckoutClose(event: any) {
+    function handleCheckoutClose() {
         dispatch(setOpen(false));
         alert("items will be shipped soon! thanks!");
         dispatch(emptyItems());
