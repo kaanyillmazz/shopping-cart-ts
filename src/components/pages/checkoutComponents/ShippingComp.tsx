@@ -3,15 +3,17 @@ import "./ShippingComp.css";
 import {Grid, Input, TextField} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {setCompleteDisplay} from "../../../features/Products/checkoutSlice";
+import {emptyItems} from "../../../features/Products/cartSlice";
+import {useNavigate} from "react-router-dom";
 
 function ShippingComp() {
     const display = useSelector((state: any) => state.checkout.shippingDisplay);
     const dispatch = useDispatch();
-
     const [countryName, setCountryName] = useState("");
     const [cityName, setCityName] = useState("");
     const [districtName, setDistrictName] = useState("");
     const [addressName, setAddressName] = useState("");
+    let navigate = useNavigate();
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -32,7 +34,9 @@ function ShippingComp() {
             return;
         }
         document.getElementById("shippingContainer")!.classList.add("drop");
-        dispatch(setCompleteDisplay("flex"))
+        dispatch(setCompleteDisplay("flex"));
+        dispatch(emptyItems());
+        setTimeout(()=>{ navigate(`/`, {replace: true})}, 3000);
     }
 
     const handleChange = (event: any) => {
