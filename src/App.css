@@ -1,95 +1,62 @@
 .App {
-  text-align: center;
-  background: linear-gradient(45deg, #00a181 40%, rgb(189,59,0), darkorange 75%, gold 85%, bisque);
+    text-align: center;
+    background: linear-gradient(45deg, #00a181 40%, rgb(189, 59, 0), darkorange 75%, gold 85%, bisque);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: #4dcae5;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #4dcae5;
+    overflow: hidden;
 }
 
 .App .wave {
-  z-index: 1;
-  background-image: url("wave.png");
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background-size: 1000px 100px;
-  margin: 0;
-  padding: 0;
+    z-index: 1;
+    background-image: url("wave.png");
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-size: 1000px 100px;
+    margin: 0;
+    padding: 0;
 }
 
 .App .wave.wave1 {
-  animation: myAnimation 15s linear infinite;
-  margin: 0;
-  padding: 0;
+    animation: myAnimation 15s linear infinite;
+    margin: 0;
+    padding: 0;
 }
 
 .App .wave.wave2 {
-  animation: myAnimation 30s linear infinite;
-  animation-delay: -4s;
-  margin: 0;
-  padding: 0;
+    animation: myAnimation 30s linear infinite;
+    animation-delay: -4s;
+    margin: 0;
+    padding: 0;
 }
+
 .App .wave.wave3 {
-  animation: myAnimation 10s linear infinite;
-  animation-delay: -5s;
-  margin: 0;
-  padding: 0;
-
+    animation: myAnimation 10s linear infinite;
+    animation-delay: -5s;
+    margin: 0;
+    padding: 0;
 }
-.App .wave.wave4 {
-  animation: myAnimation 5s linear infinite;
-  animation-delay: -7s;
-  margin: 0;
-  padding: 0;
 
+.App .wave.wave4 {
+    animation: myAnimation 5s linear infinite;
+    animation-delay: -7s;
+    margin: 0;
+    padding: 0;
 }
 
 @keyframes myAnimation {
-  0% {background-position-x: 0}
-  100% {background-position-x: 1000px}
-
+    0% {
+        background-position-x: 0
+    }
+    100% {
+        background-position-x: 1000px
+    }
 }
 
